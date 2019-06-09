@@ -20,9 +20,13 @@ public class InversePolandExpression {
     public static void main(String[] args) {
         //先定义一个逆波兰表达式
         //(3+4)*5-6 => 3 4 + 5 * 6 -
-        String suffixExpression = "3 4 + 5 * 6 -";
+        //(30+4)*5-6 => 30 4 + 5 * 6 -
+        //4 * 5 - 8 + 60 + 8 / 2 => 4 5 * 8 - 60 + 8 2 / +
+        String suffixExpression = "4 5 * 8 - 60 + 8 2 / +";
         List<String> listString = getListString(suffixExpression);
         int value = inversePolandCalc(listString);
+        System.out.println(listString.toString());
+        System.out.println();
         System.out.println(suffixExpression+" = "+value);
     }
 
