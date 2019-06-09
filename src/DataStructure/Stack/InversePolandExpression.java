@@ -14,10 +14,21 @@ import java.util.Stack;
  * <p>
  * 后缀表达式 (逆波兰表达式)
  * 从左至右扫描表达式 入栈
+ * <p>
+ * <p>
+ * 中缀表达式 转 后缀 表达式
  */
 public class InversePolandExpression {
 
     public static void main(String[] args) {
+
+
+        String Expression = "1+(2+(3-1)*4)";
+
+        List<String> list = toInfix(Expression);
+        //将得到的中缀表达式对应的List => 后缀表达式对应的list
+
+
         //先定义一个逆波兰表达式
         //(3+4)*5-6 => 3 4 + 5 * 6 -
         //(30+4)*5-6 => 30 4 + 5 * 6 -
@@ -27,12 +38,79 @@ public class InversePolandExpression {
         int value = inversePolandCalc(listString);
         System.out.println(listString.toString());
         System.out.println();
-        System.out.println(suffixExpression+" = "+value);
+        System.out.println(suffixExpression + " = " + value);
+    }
+
+
+    public static List<String> parseSuffixExpressionList(List<String> list) {
+
+        //定义两个栈 初始化栈  第二个栈可以用 List代替
+        Stack<String> stack1 = new Stack<>();
+        //List 代替Stack 因为 第二个栈没有 pop操作 最后还要逆序
+        //Stack<String> stack2 = new Stack<>();
+        List<String> stack2 = new ArrayList<>();
+
+        for (String item : list) {
+            if(item.matches("\\d+")){
+                stack2.add(item);
+            }else if (item.equals("(")){
+                stack1.push(item);
+            }else if(item.equals(")")){
+                //如果是右括号 ) 则依次弹出 stack1栈顶的运算符，并压入stack2
+                // 直到遇到(左括号为止，此时将这一对括号舍弃
+                while (!stack1.peek().equals("(")){
+                    stack2.add(stack1.pop());
+                }
+                stack1.pop();//将 （  弹出stack1 消除 ()
+            }else {
+                 //当 item 的优先级 小于或者等于 栈顶优先级
+                //将 stack1 栈顶运算符弹出并加入 stack2 中，再次转到 与 stack1 中新栈顶元素比较
+//                while (stack1.size() !=0 && )
+            }
+        }
+        return null;
+    }
+
+    public static int priority(int oper) {
+        if (oper == '*' || oper == '/') {
+            return 1;
+        } else if (oper == '+' || oper == '-') {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+
+
+    public static List<String> toInfix(String expression) {
+
+        List<String> list = new ArrayList<>();
+
+        int i = 0;//用于遍历 中缀表达式
+        String str;//对 多位数进行拼接
+        char c;//遍历字符存进 c
+
+        do {
+            //如果 c 是一个非数字 需要加入到 list
+            if ((c = expression.charAt(i)) < 48 || (c = expression.charAt(i)) > 57) {
+                list.add("" + c);
+                i++; //i后移
+            } else {//如果是一个数字，则需要考虑多位数
+                str = "";//清空  '0'[48] -> '9'[57]
+                while (i < expression.length() && (c = expression.charAt(i)) > 48 && (c = expression.charAt(i)) < 57) {
+                    str += c;
+                    i++;
+                }
+                list.add(str);
+            }
+        } while (i < expression.length());
+
+        return list;
     }
 
     //将一个逆波兰表达式，依次将数据和运算符放入到 ArrayList中
-    public static List<String> getListString(String suffixExpression) {
-        String[] str = suffixExpression.split(" ");
+    public static List<String> getListString(String Expression) {
+        String[] str = Expression.split(" ");
         List<String> list = Arrays.asList(str);
         return list;
     }
