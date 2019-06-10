@@ -2,6 +2,9 @@ package DataStructure.Sort;
 
 import java.util.Arrays;
 
+/**
+ * 每次遍历找到最小值 与 arr[i] 进行交换   i  0~arr.length-1
+ */
 public class SelectionSort {
 	public static void main(String[] args) {
 
@@ -28,8 +31,9 @@ public class SelectionSort {
 					arr[i] = temp;
 				}
 			}
+			System.out.println("第" +j+ "轮交换后："+Arrays.toString(arr));
 		}
 
-		System.out.println("交换之后：" + Arrays.toString(arr));
+
 	}
 }
