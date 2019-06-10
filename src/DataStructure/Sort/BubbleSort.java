@@ -1,7 +1,6 @@
 package DataStructure.Sort;
 
 import java.time.Duration;
-import java.time.Instant;
 import java.time.LocalTime;
 import java.util.Arrays;
 
@@ -12,15 +11,17 @@ public class BubbleSort {
     public static void main(String[] args) {
 
         int[] arr = {9, 6, 1, 5, 4, 7, 8, 3, 2};
-        System.out.println(Arrays.toString(arr));
+        System.out.println("原数组："+Arrays.toString(arr));
         bubbleSort(arr, arr.length);
-        System.out.println(Arrays.toString(arr));
+        System.out.println("外循环控制循环次数！");
+        System.out.println("排序后："+Arrays.toString(arr));
         System.out.println("---------------------------------");
 
-        //算法优化
+
         int[] array1 = {95, -2, 1, -5, 4, 97, -8, 3, 2};
         int[] array = {1,2,3,4,5,6,7};
         System.out.println("原数组："+Arrays.toString(array));
+        //算法优化
         inBubbleSort(array);
         System.out.println("-----inBubbleSort------");
         System.out.println(Arrays.toString(array));
