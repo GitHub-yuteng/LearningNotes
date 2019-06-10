@@ -23,22 +23,27 @@ public class InversePolandExpression {
     public static void main(String[] args) {
 
 
-        String Expression = "1+(2+(3-1)*4)";
+        String Expression = "1+((2+3)*4)-5";
 
-        List<String> list = toInfix(Expression);
+        List<String> infixlist = toInfix(Expression);
+        System.out.println("中缀表达式:"+infixlist.toString());
+
         //将得到的中缀表达式对应的List => 后缀表达式对应的list
-
+        List<String> suffixExpressionList = parseSuffixExpressionList(infixlist);//中缀转后缀
+        System.out.println("后缀表达式:"+suffixExpressionList.toString());
 
         //先定义一个逆波兰表达式
         //(3+4)*5-6 => 3 4 + 5 * 6 -
         //(30+4)*5-6 => 30 4 + 5 * 6 -
         //4 * 5 - 8 + 60 + 8 / 2 => 4 5 * 8 - 60 + 8 2 / +
-        String suffixExpression = "4 5 * 8 - 60 + 8 2 / +";
-        List<String> listString = getListString(suffixExpression);
-        int value = inversePolandCalc(listString);
-        System.out.println(listString.toString());
+//        String suffixExpression = "4 5 * 8 - 60 + 8 2 / +";
+//        List<String> listString = getListString(suffixExpression);//
+//        System.out.println(listString.toString());
+
+        int value = inversePolandCalc(suffixExpressionList);//后缀逆波兰计算
         System.out.println();
-        System.out.println(suffixExpression + " = " + value);
+
+        System.out.println(suffixExpressionList + " = " + value);
     }
 
 
@@ -50,35 +55,56 @@ public class InversePolandExpression {
         //Stack<String> stack2 = new Stack<>();
         List<String> stack2 = new ArrayList<>();
 
+        // 1+((2+3)*4)-5
         for (String item : list) {
-            if(item.matches("\\d+")){
+            if (item.matches("\\d+")) {
                 stack2.add(item);
-            }else if (item.equals("(")){
+            } else if (item.equals("(")) {
                 stack1.push(item);
-            }else if(item.equals(")")){
+            } else if (item.equals(")")) {
                 //如果是右括号 ) 则依次弹出 stack1栈顶的运算符，并压入stack2
                 // 直到遇到(左括号为止，此时将这一对括号舍弃
-                while (!stack1.peek().equals("(")){
+                while (!stack1.peek().equals("(")) {
                     stack2.add(stack1.pop());
                 }
                 stack1.pop();//将 （  弹出stack1 消除 ()
-            }else {
-                 //当 item 的优先级 小于或者等于 栈顶优先级
+            } else {
+                //当 item 的优先级 小于或者等于 栈顶优先级
                 //将 stack1 栈顶运算符弹出并加入 stack2 中，再次转到 与 stack1 中新栈顶元素比较
-//                while (stack1.size() !=0 && )
+                while (stack1.size() != 0 && priority(stack1.peek()) >= priority(item)) {
+                    stack2.add(stack1.pop());
+                }
+                stack1.push(item);
             }
         }
-        return null;
+
+        while (stack1.size() != 0) {
+            stack2.add(stack1.pop());
+        }
+
+        return stack2;
     }
 
-    public static int priority(int oper) {
-        if (oper == '*' || oper == '/') {
-            return 1;
-        } else if (oper == '+' || oper == '-') {
-            return 0;
-        } else {
-            return -1;
+    public static int priority(String oper) {
+        int res = 0;
+        switch (oper) {
+            case "+":
+                res = 1;
+                break;
+            case "-":
+                res = 1;
+                break;
+            case "*":
+                res = 2;
+                break;
+            case "/":
+                res = 2;
+                break;
+            default:
+//                System.out.println("运算符输入有误!" + oper);
+                break;
         }
+        return res;
     }
 
 
