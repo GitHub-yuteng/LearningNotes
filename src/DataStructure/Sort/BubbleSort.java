@@ -28,7 +28,7 @@ public class BubbleSort {
 
         //测试冒泡排序的速度 O(n*n)
         //创建一个 80000个 随机的数组;
-        System.out.println("-----testArray------");
+        System.out.println("-----testInBubbleSort------");
         int[] testArray = new int[80000];
         for (int i = 0; i <80000 ; i++) {
             testArray[i] = (int) (Math.random() * 800000);//生成一个 [0,800000) 内的数字
@@ -49,6 +49,7 @@ public class BubbleSort {
 
     //这种是内循环控制循环次数 每次排序长度减 1
     public static void inBubbleSort(int[] array){
+        int count = 0;
         int temp = 0;//临时变量
         boolean flag = false;//标识变量，表示是否进行过交换
 
@@ -56,6 +57,7 @@ public class BubbleSort {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - 1 - i; j++) {
                 if (array[j] > array[j + 1]) {
+                    count++;
                     flag = true;
                     temp = array[j];
                     array[j] = array[j + 1];
@@ -71,6 +73,7 @@ public class BubbleSort {
                 flag = false;//重置flag！, 进行下次判断
             }
         }
+        System.out.println("交换次数："+count);
     }
 
 
