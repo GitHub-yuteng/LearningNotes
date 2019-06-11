@@ -41,7 +41,7 @@ public class BubbleSort {
         inBubbleSort(testArray);
 
         LocalTime end = LocalTime.now();
-        System.out.println("开始时间为："+end);
+        System.out.println("结束时间为："+end);
 
         Duration time = Duration.between(start, end);
         System.out.println("时间为："+time.toMillis()+" 毫秒！");
