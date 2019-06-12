@@ -47,6 +47,7 @@ public class MergeSort {
         int mid = (left + right) / 2;
         mergeSort(arr, left, mid);
         mergeSort(arr, mid + 1, right);
+
         // left - mid   mid+1 - right 两个序列已经排好序，但整体无序
         // merge的过程就是将两个序列排序
         merge(arr, left, mid, right);
