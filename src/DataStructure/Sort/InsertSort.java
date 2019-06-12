@@ -7,7 +7,8 @@ import java.util.Arrays;
 /**
  * @author Yu
  * <p>
- * 插入排序
+ * 插入排序  O(n^2)	O(n^2)	稳定	O(1)	大部分已排序时较好
+ *
  */
 public class InsertSort {
 
