@@ -6,8 +6,7 @@ import java.util.Arrays;
 
 /**
  * @author Yu
- * <p>
- * 插入排序  O(n^2)	O(n^2)	稳定	O(1)	大部分已排序时较好
+ * 插入排序  O(n^2)	O(n^2)	稳定	O(1) 适合大部分已排序时较好
  *
  */
 public class InsertSort {
@@ -52,7 +51,7 @@ public class InsertSort {
 
             // insertIndex >= 0 保证在给 insertVal找插入位置不越界
             while (insertIndex >= 0 && insertVal < arr[insertIndex]) {
-                count++;
+                count++;//计数
                 arr[insertIndex + 1] = arr[insertIndex];
                 insertIndex--;
             }
