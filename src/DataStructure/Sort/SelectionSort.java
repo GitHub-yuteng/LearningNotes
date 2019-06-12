@@ -5,8 +5,17 @@ import java.time.LocalTime;
 import java.util.Arrays;
 
 /**
+ * @author Yu
  * 每次遍历找到最小值 与 arr[i] 进行交换   i  0~arr.length-1
- * 选择排序 O(n^2)	O(n^2)	不稳定	O(1)	n小时较好
+ *
+ * 选择排序   ->n小时较好  不稳定
+ *
+ * 时间复杂度
+ * 平均 O(n^2)
+ * 最好情况 O(n^2)
+ * 最坏情况 O(n^2)
+ *
+ * 空间复杂度 O(1)
  */
 public class SelectionSort {
     public static void main(String[] args) {

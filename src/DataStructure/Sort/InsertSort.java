@@ -6,9 +6,16 @@ import java.util.Arrays;
 
 /**
  * @author Yu
- * 插入排序  O(n^2)	O(n^2)	稳定	O(1) 适合大部分已排序时较好
+ * 插入排序   ->n小时较好  稳定
  *
+ * 时间复杂度
+ * 平均 O(n^2)
+ * 最好情况 O(n)
+ * 最坏情况 O(n^2)
+ *
+ * 空间复杂度 O(1)
  */
+
 public class InsertSort {
 
     public static void main(String[] args) {

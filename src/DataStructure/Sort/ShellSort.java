@@ -8,8 +8,17 @@ import java.util.Arrays;
  * @author Yu
  * 升级插入排序
  * 缩小增量排序
- * 希尔排序 O(nlogn)	O(ns) 1<s<2	不稳定	O(1)	s是所选分组
+ *
+ * 希尔排序    不稳定
+ *
+ * 时间复杂度
+ * 平均 O(nlogn)
+ * 最好情况 O(nlog^2 n)
+ * 最坏情况 O(nlog^2 n)
+ *
+ * 空间复杂度 O(1)
  */
+
 public class ShellSort {
 
     public static void main(String[] args) {

@@ -5,12 +5,22 @@ import java.time.LocalTime;
 import java.util.Arrays;
 
 /**
+ * @author Yu
+ *
  * 分治思想
+ * 归并排序   稳定
+ *
+ * 时间复杂度
+ * 平均 O(nlogn)
+ * 最好情况 O(nlog n)
+ * 最坏情况 O(nlog n)
+ *
+ * 空间复杂度 O(n)
  */
 public class MergeSort {
 
     public static void main(String[] args) {
-        int[] arr = {8, 4, 5, 7, 1, 3, 6, 2};
+        int[] arr = {8, 4, 5, 0, 0, 7, 1, 3, 6, 2};
         mergeSort(arr);
         System.out.println(Arrays.toString(arr));
 
