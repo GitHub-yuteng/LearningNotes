@@ -55,11 +55,10 @@ public class InsertSort {
                 arr[insertIndex + 1] = arr[insertIndex];
                 insertIndex--;
             }
-
             //优化  判断是否需要赋值
-//            if (insertIndex + 1 != i) {
+            if (insertIndex + 1 != i) {
                 arr[insertIndex + 1] = insertVal;
-//            }
+            }
 
 //            System.out.println("第"+i+"次排序："+Arrays.toString(arr));
         }
