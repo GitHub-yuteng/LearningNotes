@@ -16,7 +16,7 @@ public class BubbleSort {
         bubbleSort(arr, arr.length);
         System.out.println("外循环控制循环次数！");
         System.out.println("排序后："+Arrays.toString(arr));
-        System.out.println("---------------------------------");
+        System.out.println("----------------------------------");
 
 
         int[] array1 = {95, -2, 1, -5, 4, 97, -8, 3, 2};
