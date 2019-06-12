@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.util.Arrays;
 
 /**
- * 分治
+ * 分治思想
  */
 public class MergeSort {
 
