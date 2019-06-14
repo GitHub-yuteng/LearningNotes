@@ -1,6 +1,4 @@
-package DataStructure.Test;
-
-import java.util.Scanner;
+package DataStructure.ZTest;
 
 /**
  * @author Yu
