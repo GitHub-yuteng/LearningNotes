@@ -22,14 +22,27 @@ public class ThreadBinaryTreeDemo {
         threadNode2.right = threadNode5;
         threadNode3.left = threadNode6;
 
-        //测试线索化
+
         ThreadBinaryTree threadBinaryTree = new ThreadBinaryTree();
         threadBinaryTree.root = root;
-        threadBinaryTree.threadNodes();
 
-        //测试
-        System.out.println("前驱节点："+threadNode3.left);
-        System.out.println("后继节点："+threadNode3.right);
+        //测试中序线索化
+//        threadBinaryTree.infixThreadNodes();
+//        System.out.println("中序 前驱节点：" + threadNode4.left);
+//        System.out.println("中序 后继节点：" + threadNode4.right);
+//        //中序遍历线索二叉树
+//        System.out.println("------中序遍历线索二叉树------");
+//        threadBinaryTree.infixThreadList();
+
+
+        //测试前序线索化
+        threadBinaryTree.preThreadNodes(root);
+        System.out.println("前序 前驱节点：" + threadNode4.left);
+        System.out.println("前序 后继节点：" + threadNode4.right);
+
+        //前序遍历线索二叉树
+        System.out.println("------前序遍历线索二叉树------");
+        threadBinaryTree.preThreadList();
     }
 }
 
@@ -43,8 +56,8 @@ class ThreadBinaryTree {
 
 
     //重载该方法
-    public void threadNodes() {
-        this.threadNodes(root);
+    public void infixThreadNodes() {
+        this.infixThreadNodes(root);
     }
 
     //编写对二叉树进行中序线索化的方法
@@ -54,7 +67,7 @@ class ThreadBinaryTree {
      *
      * @param threadNode
      */
-    public void threadNodes(ThreadNode threadNode) {
+    public void infixThreadNodes(ThreadNode threadNode) {
 
         //如果node == null
         if (threadNode == null) {
@@ -62,7 +75,7 @@ class ThreadBinaryTree {
         }
 
         // 1、先线索化左子树
-        threadNodes(threadNode.left);
+        infixThreadNodes(threadNode.left);
 
         // 2、先线索化当前结点
 
@@ -83,76 +96,83 @@ class ThreadBinaryTree {
         //！ 每处理一个节点后，让当前结点是下一个节点的前驱节点
         pre = threadNode;
 
-
         // 3、先线索化右 子树
-        threadNodes(threadNode.right);
+        infixThreadNodes(threadNode.right);
     }
 
+    //遍历线索二叉树 中序
+    public void infixThreadList() {
 
-    //前序遍历
-    public void preOrder() {
-        if (this.root != null) {
-            this.root.preOrder();
-        } else {
-            System.out.println("二叉树为空，无法遍历");
+        //定义一个变量，存储当前遍历的节点，从root开始
+        ThreadNode threadNode = root;
+
+        while (threadNode != null) {
+            //循环找到 leftType == 1的节点，则为第一个节点
+            //后面随着遍历而变化，因为当lefttype == 1时，该节点是线索化节点
+            while (threadNode.leftType == 0) { //说明为左子树， left 不为空
+                threadNode = threadNode.left;
+            }
+            //退出说明找到 打印此结点
+            System.out.println(threadNode);
+
+            //如果当前结点的右指针指向的是后继结点，就一直输出
+            while (threadNode.rightType == 1) {
+                threadNode = threadNode.right;
+                System.out.println(threadNode);
+            }
+
+            //替换遍历结点
+            threadNode = threadNode.right;
         }
     }
 
-    //中序遍历
-    public void infixOrder() {
-        if (this.root != null) {
-            this.root.infixOrder();
-        } else {
-            System.out.println("二叉树为空，无法遍历");
-        }
-    }
-
-    //后序遍历
-    public void postOrder() {
-        if (this.root != null) {
-            this.root.postOrder();
-        } else {
-            System.out.println("二叉树为空，无法遍历");
-        }
-    }
+    //编写对二叉树进行前序线索化的方法
 
     /**
-     * @param no
-     * @return
+     * 就是当前需要线索化的结点
+     *
+     * @param threadNode
      */
-    public ThreadNode preOrderSearch(int no) {
+    public void preThreadNodes(ThreadNode threadNode) {
 
-        if (this.root != null) {
-            return this.root.preOrderSearch(no);
-        } else {
-            return null;
+        //如果node == null
+        if (threadNode == null) {
+            return;
+        }
+
+        //如果没有左子树
+        if (threadNode.left == null) {
+            threadNode.left = pre;
+            threadNode.leftType = 1;
+        }
+
+        //上一个节点有没有  右子树
+        if (pre != null && pre.right == null) {
+            //pre第一次进来 为空
+            pre.right = threadNode;
+            pre.rightType = 1;
+        }
+        pre = threadNode;
+
+        //判断root是否有左右孩子
+        if (threadNode.leftType == 0) {
+            preThreadNodes(threadNode.left);
+        }
+        if (threadNode.rightType == 0) {
+            preThreadNodes(threadNode.right);
         }
     }
 
-    /**
-     * @param no
-     * @return
-     */
-    public ThreadNode infixOrderSearch(int no) {
+    //遍历线索二叉树 前序
+    public void preThreadList() {
 
-        if (this.root != null) {
-            return this.root.infixOrderSearch(no);
-        } else {
-            return null;
+        //定义一个变量，存储当前遍历的节点，从root开始
+        ThreadNode threadNode = root;
+
+        if (threadNode == null) {
+            return;
         }
-    }
 
-    /**
-     * @param no
-     * @return
-     */
-    public ThreadNode postOrderSearch(int no) {
-
-        if (this.root != null) {
-            return this.root.postOrderSearch(no);
-        } else {
-            return null;
-        }
     }
 }
 
@@ -179,154 +199,6 @@ class ThreadNode {
                 "num=" + num +
                 ", name='" + name + '\'' +
                 '}';
-    }
-
-    //前序遍历
-    public void preOrder() {
-
-        //输出当前结点
-        System.out.println(this);
-
-        //递归左子树前序遍历
-        if (this.left != null) {
-            this.left.preOrder();
-        }
-
-        //递归右子树前序遍历
-        if (this.right != null) {
-            this.right.preOrder();
-        }
-    }
-
-    //中序遍历
-    public void infixOrder() {
-
-        //递归左子树前序遍历
-        if (this.left != null) {
-            this.left.infixOrder();
-        }
-
-        //输出当前结点
-        System.out.println(this);
-
-        //递归右子树前序遍历
-        if (this.right != null) {
-            this.right.infixOrder();
-        }
-    }
-
-    //中序遍历
-    public void postOrder() {
-
-        //递归左子树前序遍历
-        if (this.left != null) {
-            this.left.postOrder();
-        }
-
-        //递归右子树前序遍历
-        if (this.right != null) {
-            this.right.postOrder();
-        }
-
-        //输出当前结点
-        System.out.println(this);
-    }
-
-
-    /**
-     * @param no 指定查找 编号
-     * @return 如果找到就返回Node 如果没有找到就返回null
-     */
-    public ThreadNode preOrderSearch(int no) {
-
-        System.out.println("进入前序遍历！");
-        //打印该节点
-        if (this.num == no) {
-            return this;
-        }
-
-        //结果节点
-        ThreadNode resNode = null;
-
-        //左递归
-        if (this.left != null) {
-            resNode = this.left.preOrderSearch(no);
-        }
-        if (resNode != null) {//如果 node 不为空 说明找到了 返回
-            return resNode;
-        }
-
-        //左递归没有找到，右递归
-        if (this.right != null) {
-            resNode = this.right.preOrderSearch(no);
-        }
-
-        return resNode;
-    }
-
-    /**
-     * @param no 指定查找 编号
-     * @return 如果找到就返回Node 如果没有找到就返回null
-     */
-    public ThreadNode infixOrderSearch(int no) {
-
-        //结果节点
-        ThreadNode resNode = null;
-
-        //左递归
-        if (this.left != null) {
-            resNode = this.left.infixOrderSearch(no);
-        }
-        if (resNode != null) {//如果 node 不为空 说明找到了 返回
-            return resNode;
-        }
-
-        System.out.println("进入中序遍历！");
-        //打印该节点
-        if (this.num == no) {
-            return this;
-        }
-
-        //左递归没有找到，右递归
-        if (this.right != null) {
-            resNode = this.right.infixOrderSearch(no);
-        }
-
-        return resNode;
-    }
-
-    /**
-     * @param no 指定查找 编号
-     * @return 如果找到就返回Node 如果没有找到就返回null
-     */
-    public ThreadNode postOrderSearch(int no) {
-
-        //结果节点
-        ThreadNode resNode = null;
-
-        //左递归
-        if (this.left != null) {
-            resNode = this.left.postOrderSearch(no);
-        }
-        if (resNode != null) {//如果 node 不为空 说明找到了 返回
-            return resNode;
-        }
-
-        //左递归没有找到，右递归
-        if (this.right != null) {
-            resNode = this.right.postOrderSearch(no);
-        }
-        if (resNode != null) {//如果 node 不为空 说明找到了 返回
-            return resNode;
-        }
-
-        System.out.println("进入后序遍历！");
-        //打印该节点
-        if (this.num == no) {
-            return this;
-        }
-
-        return resNode;
     }
 }
 
