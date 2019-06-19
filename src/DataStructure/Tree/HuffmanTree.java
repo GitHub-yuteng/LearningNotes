@@ -20,9 +20,8 @@ public class HuffmanTree {
 
     }
 
-    //创建哈夫曼树
-
     /**
+     * 创建哈夫曼树
      * @param arr 需要创建成哈夫曼树的 数组
      * @return 返回哈夫曼树root节点
      */
