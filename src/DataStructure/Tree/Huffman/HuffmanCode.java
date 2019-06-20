@@ -272,6 +272,8 @@ public class HuffmanCode {
             nodes.remove(leftNode);
             nodes.remove(rightNode);
             nodes.add(parentNode);
+
+
         }
 
         return nodes.get(0);

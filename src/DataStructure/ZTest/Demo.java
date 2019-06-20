@@ -6,25 +6,21 @@ package DataStructure.ZTest;
  * // 1、用 switch 判断 打印
  * // 2、可以让 线程 睡 三秒 花自动打开 打印输出 (没有时间了)
  */
-public class Bee {
 
-    String breakfast = "Hummingbird breakfast time!";
-    String bed = "Hummingbird bed time!";
-
+public class Demo {
     public static void main(String[] args) {
 
         Flower flower = new Flower();
         Thread thread = new Thread();
 
-        while (true) {
-
-            if (flower.status == true) {
+        for (int j = 0; j < 2; j++) {
+            if (flower.isStatus()) {
                 flower.booleanstatu();
                 for (int i = 0; i < 3; i++) {
                     Bee bee = new Bee();
-                    System.out.println((i + 1) + " " + bee.breakfast);
+                    System.out.println((i + 1) + " " + bee.getBreakfast());
                 }
-                flower.status = false;
+                flower.setStatus(false);
                 try {
                     thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -34,9 +30,9 @@ public class Bee {
                 flower.booleanstatu();
                 for (int i = 0; i < 3; i++) {
                     Bee bee = new Bee();
-                    System.out.println((i + 1) + " " + bee.bed);
+                    System.out.println((i + 1) + " " + bee.getBed());
                 }
-                flower.status = true;
+                flower.setStatus(true);
                 try {
                     thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -47,9 +43,38 @@ public class Bee {
     }
 }
 
-class Flower {
+class Bee {
 
-    boolean status = true;//默认为开花
+    private String breakfast = "Hummingbird breakfast time!";
+    private String bed = "Hummingbird bed time!";
+
+    public String getBreakfast() {
+        return breakfast;
+    }
+
+    public void setBreakfast(String breakfast) {
+        this.breakfast = breakfast;
+    }
+
+    public String getBed() {
+        return bed;
+    }
+
+    public void setBed(String bed) {
+        this.bed = bed;
+    }
+}
+
+class Flower {
+    private boolean status = true;//默认为开花
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
     public void booleanstatu() {
         if (status) {
@@ -58,4 +83,6 @@ class Flower {
             System.out.println("Flower Close");
         }
     }
+
+
 }
