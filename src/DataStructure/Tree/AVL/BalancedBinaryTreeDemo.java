@@ -29,7 +29,7 @@ public class BalancedBinaryTreeDemo {
         //中序遍历
         avlTree.infixOrder();
 
-        System.out.println("平衡处理！");
+        System.out.println("平衡处理 ！");
         System.out.println("树高度：" + avlTree.getRoot().height());
         System.out.println("左子树树高度：" + avlTree.getRoot().left.height());
         System.out.println("右子树树高度：" + avlTree.getRoot().right.height());
