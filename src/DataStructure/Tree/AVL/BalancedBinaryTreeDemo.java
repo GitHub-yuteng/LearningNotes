@@ -1,54 +1,50 @@
-package DataStructure.Tree.BinarySortTree;
-
-import java.util.Arrays;
-import java.util.List;
+package DataStructure.Tree.AVL;
 
 /**
  * @author Yu
+ * AVL（Adelson-Velskii and Landis）树得名于它的发明者
+ * G.M. Adelson-Velsky 和 E.M. Landis
  * <p>
- * 二叉排序树  BST
- * 避免相同值
+ * LL	在a的左子树根节点的左子树上插入节点而破坏平衡	右旋转
+ * RR	在a的右子树根节点的右子树上插入节点而破坏平衡	左旋转
+ * LR	在a的左子树根节点的右子树上插入节点而破坏平衡	先左旋后右旋
+ * RL	在a的右子树根节点的左子树上插入节点而破坏平衡	先右旋后左旋
  */
-public class BinarySortTreeDemo {
+public class BalancedBinaryTreeDemo {
 
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(7, 3, 10, 12, 5, 1, 9, 2);
+        int[] arrRR = {4, 3, 6, 5, 7, 8};//右子树 高 RR旋转 例子数组
+        int[] arrLL = {10, 12, 8, 9, 7, 6};//左子树 高 LL旋转 例子数组
+        int[] arrLR = {10, 11, 7, 6, 8, 9};//左子树 高 先左旋后右旋 例子数组
+        int[] arrRL = {20, 19, 23, 22, 21, 25};//左子树 高 先右旋后左旋 例子数组
 
-        BinarySortTree binarySortTree = new BinarySortTree();
+        //创建一个 AVL
+        AvlTree avlTree = new AvlTree();
 
-        for (Integer item : list) {
-            Node node = new Node(item);
-            binarySortTree.addNode(node);
+        //添加节点
+        for (int i : arrRL) {
+            avlTree.addNode(new Node(i));
         }
 
-        //中序遍历二叉排序树
-        binarySortTree.infixOrder();
+        //中序遍历
+        avlTree.infixOrder();
 
-        //中序遍历二叉排序树
-        System.out.println("删除了叶子节点之后！");
-
-        //一、如果要删除的节点是叶子节点
-/*        binarySortTree.delete(2);//删除2 之后可以删除1
-        binarySortTree.delete(1);
-        binarySortTree.delete(5);
-        binarySortTree.delete(9);
-        binarySortTree.delete(12);*/
-
-
-        //二、删除有两颗子树的节点
-        binarySortTree.delete(7);
-
-        //三、删除只有一颗子树的节点
-//        binarySortTree.delete(1);
-
-        binarySortTree.infixOrder();
-
+        System.out.println("平衡处理！");
+        System.out.println("树高度：" + avlTree.getRoot().height());
+        System.out.println("左子树树高度：" + avlTree.getRoot().left.height());
+        System.out.println("右子树树高度：" + avlTree.getRoot().right.height());
+        System.out.println(avlTree.getRoot());
     }
 }
 
-class BinarySortTree {
+//创建 AVL 树  也是一颗 二叉搜索树
+class AvlTree {
 
     private Node root;//根结点
+
+    public Node getRoot() {
+        return root;
+    }
 
     /**
      * @param node
@@ -238,6 +234,35 @@ class Node {
                 '}';
     }
 
+    //返回左子树的高度
+    public int leftHeight() {
+        if (left == null) {
+            return 0;
+        } else {
+            int leftHeight = this.left.height();
+            return leftHeight;
+        }
+    }
+
+    //返回右子树的高度
+    public int rightHeight() {
+        if (right == null) {
+            return 0;
+        } else {
+            int rightHeight = this.right.height();
+            return rightHeight;
+        }
+    }
+
+    //返回以该节点为根结点的树的高度
+    public int height() {
+        //一直再加 1。每调用一次 +1
+        int leftHeight = (this.left == null ? 0 : this.left.height());
+        int rightHeight = (this.right == null ? 0 : this.right.height());
+        int height = Math.max(leftHeight, rightHeight) + 1;
+        return height;
+    }
+
     /**
      * 添加节点
      * 递归的形式添加节点，满足二叉排序树的要求
@@ -258,7 +283,7 @@ class Node {
                 //不为空则递归
                 this.left.add(node);
             }
-        } else { //传入节点大于 当前子树根节点
+        } else { //传入节点大于等于当前子树根节点
             if (this.right == null) {
                 //如果当前的左节点为空，直接挂上节点
                 this.right = node;
@@ -266,6 +291,38 @@ class Node {
                 //不为空则递归
                 this.right.add(node);
             }
+        }
+
+        //添加完一个结点后 判断左右子树高度
+        // 如果 (右子树高度 - 左子树高度) > 1 RR旋转 左旋转
+        int height = this.rightHeight() - this.leftHeight();
+        if (height > 1) {
+            //如果当前结点的右子树的左子树高度 大于 当前结点的右子树的右子树高度  RL旋转
+            if (right != null && right.leftHeight() > right.rightHeight()) {
+                //先对当前结点的右子树进行 ->右旋转
+                this.right.LLrotate();
+                //先对当前结点进行 -> 左旋转
+                this.RRrotate();
+            } else {
+                this.RRrotate();
+            }
+            return;//这个return 一定要加上。不要旋转后 继续判断
+        }
+
+        //添加完一个结点后 判断左右子树高度
+        // 如果 (左子树高度 - 右子树高度) > 1 LL旋转 右旋转
+        height = this.leftHeight() - this.rightHeight();
+        if (height > 1) {
+            //如果当前结点的左子树的右子树高度 大于 当前结点的左子树的左子树的高度  LR旋转
+            if (this.left != null && this.left.rightHeight() > this.left.leftHeight()) {
+                //先对当前结点的左子树进行 ->左旋转
+                this.left.RRrotate();
+                //先对当前结点进行 ->右旋转
+                this.LLrotate();
+            } else {
+                this.LLrotate();
+            }
+            return;
         }
     }
 
@@ -330,5 +387,53 @@ class Node {
         if (this.right != null) {
             this.right.infixOrder();
         }
+    }
+
+    /**
+     * 左旋转  RR旋转
+     */
+    private void RRrotate() {
+
+        //1、创建新的结点，值为当前根结点的值
+        Node newNode = new Node(this.value);
+
+        //2、把新的节点的左子树，设置为当前结点的左子树
+        newNode.left = this.left;
+
+        //3、把新节点的右子树设置为当前结点的右子树的左子树
+        newNode.right = this.right.left;
+
+        //4、把当前结点的值换为当前节点右节点的值
+        this.value = this.right.value;
+
+        //5、把当前结点的右子树设置成右子树的右子树
+        this.right = this.right.right;
+
+        //6、把当前结点的左子树换成新节点
+        this.left = newNode;
+    }
+
+    /**
+     * 右旋转  LL旋转
+     */
+    private void LLrotate() {
+
+        //1、创建新的结点，值为当前根结点的值
+        Node newNode = new Node(this.value);
+
+        //2、把新的节点的右子树，设置为当前结点的右子树
+        newNode.right = this.right;
+
+        //3、把新节点的左子树设置为当前结点的左子树的右子树
+        newNode.left = this.left.right;
+
+        //4、把当前结点的值换为当前节点左节点的值
+        this.value = this.left.value;
+
+        //5、把当前结点的左子树设置成左子树的左子树
+        this.left = this.left.left;
+
+        //6、把当前结点的右子树换成新节点
+        this.right = newNode;
     }
 }
