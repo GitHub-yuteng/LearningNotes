@@ -1,4 +1,4 @@
-package DataStructure.ZTest;
+package DataStructure.ZTest.Interview;
 
 /**
  * @author Yu
@@ -6,8 +6,7 @@ package DataStructure.ZTest;
  * // 1、用 switch 判断 打印
  * // 2、可以让 线程 睡 三秒 花自动打开 打印输出 (没有时间了)
  */
-
-public class Demo {
+public class Interview {
     public static void main(String[] args) {
 
         Flower flower = new Flower();

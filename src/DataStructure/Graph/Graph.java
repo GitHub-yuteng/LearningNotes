@@ -23,6 +23,8 @@ public class Graph {
     private ArrayList<String> vertexList;//存储顶点集合
     private int[][] edges;//存储图对应的邻接矩阵
     private int numOfEdges;//表示边的数目
+    //记录结点是否被访问过
+    private boolean[] isVisited;
 
 
     public static void main(String[] args) {
@@ -46,12 +48,76 @@ public class Graph {
         graph.showGraph();
         System.out.println(graph.getNumOfVertex());
         System.out.println(graph.getNumOfEdges());
+
+        graph.DFS();
+
+
     }
 
     public Graph(int n) {
         vertexList = new ArrayList<>(n);
         edges = new int[n][n];
+        isVisited = new boolean[n];
         numOfEdges = 0;
+    }
+
+    /**
+     * 根据前一个邻接结点的下标来获取下一个邻接结点
+     *
+     * @param v1
+     * @param v2
+     * @return
+     */
+    public int getNextNeighbor(int v1, int v2) {
+        for (int j = v2 + 1; j < vertexList.size(); j++) {
+            if (edges[v1][j] > 0) {
+                return j;
+            }
+        }
+        return -1;
+    }
+
+    //重载 DFS
+    public void DFS() {
+        for (int i = 0; i < getNumOfVertex(); i++) {
+            if (!isVisited[i]) {//没有访问过
+                DFS(isVisited, i);
+            }
+        }
+    }
+
+    //DFS  i 第一次为 0
+    private void DFS(boolean[] isVisited, int i) {
+        //首先访问该结点
+        System.out.print(getValueByIndex(i) + "->");
+        //设置成已经访问过
+        isVisited[i] = true;
+        //查找 结点 i 的第一个邻接结点 w
+        int w = getFirstNeighbor(i);
+
+        while (w != -1) {//说明有邻接结点
+            if (!isVisited[w]) {
+                DFS(isVisited, w);
+            }
+            //如果 w 结点已经被访问过
+            w = getNextNeighbor(i, w);
+        }
+    }
+
+    /**
+     * 得到第一个邻接结点的下标 w
+     * 如果存在 就返回对应的下标 否则返回 -1
+     *
+     * @param index
+     * @return
+     */
+    public int getFirstNeighbor(int index) {
+        for (int j = 0; j < vertexList.size(); j++) {
+            if (edges[index][j] > 0) {
+                return j;
+            }
+        }
+        return -1;
     }
 
     //返回顶点的个数
