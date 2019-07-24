@@ -43,7 +43,7 @@ public class SpinLockTest {
         }, "Thread-1").start();
 
         try {
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.MILLISECONDS.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
