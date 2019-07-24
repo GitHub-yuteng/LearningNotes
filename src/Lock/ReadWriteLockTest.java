@@ -3,7 +3,7 @@ package Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class TestReadWriteLock {
+public class ReadWriteLockTest {
 
     public static void main(String[] args) {
         ReadWriteLockDemo rw = new ReadWriteLockDemo();
@@ -11,7 +11,7 @@ public class TestReadWriteLock {
         new Thread(() -> {
             for (int i = 0; i < 2; i++) {
                 final int num = rw.set((int) (Math.random() * 101));
-                System.out.println(Thread.currentThread().getName() + "->" + num);
+                System.out.println(Thread.currentThread().getName() + "------------------>" + num);
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
@@ -32,13 +32,11 @@ public class TestReadWriteLock {
             }).start();
         }
     }
-
 }
 
 class ReadWriteLockDemo {
 
     private volatile int number = 0;
-
     private ReadWriteLock lock = new ReentrantReadWriteLock();
 
     // 读
@@ -50,7 +48,6 @@ class ReadWriteLockDemo {
             lock.readLock().unlock(); // 释放锁
         }
     }
-
     // 写
     public int set(int number) {
         lock.writeLock().lock();
