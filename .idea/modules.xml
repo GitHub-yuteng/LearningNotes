@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Classical/Classical.iml" filepath="$PROJECT_DIR$/Classical/Classical.iml" />
-      <module fileurl="file://$PROJECT_DIR$/剑指Offer.iml" filepath="$PROJECT_DIR$/剑指Offer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LearningNotes.iml" filepath="$PROJECT_DIR$/LearningNotes.iml" />
     </modules>
   </component>
 </project>

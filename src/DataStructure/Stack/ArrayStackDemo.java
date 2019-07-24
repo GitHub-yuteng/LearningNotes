@@ -1,7 +1,5 @@
 package DataStructure.Stack;
 
-import sun.plugin.javascript.navig.Array;
-
 import java.util.Scanner;
 
 /**
