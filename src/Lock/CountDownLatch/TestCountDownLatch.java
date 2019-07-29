@@ -39,7 +39,8 @@ class LatchDemo implements Runnable {
 
     @Override
     public void run() {
-        //每个线程都各自打印50以内的偶数
+
+        //TODO 每个线程都各自打印50以内的偶数
         synchronized (this) {
             try {
                 for (int i = 0; i < 50; i++) {
