@@ -7,7 +7,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class TestCopyOnWriteArrayList {
     public static void main(String[] args) {
         HelloThread ht = new HelloThread();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             new Thread(ht).start();
         }
     }
@@ -15,13 +15,14 @@ public class TestCopyOnWriteArrayList {
 
 /**
  * 使用迭代器
- * Collections.synchronizedList(new ArrayList<>());
  * 因为 迭代器 和 list 操作的同一个数据源 所以添加后会报错
+ * Collections.synchronizedList(new ArrayList<>());
+ *
  */
 class HelloThread implements Runnable {
 
     //java.util.ConcurrentModificationException
-    //private static List<String> list = Collections.synchronizedList(new ArrayList<>());
+//    private static List<String> list = Collections.synchronizedList(new ArrayList<>());
 
     private static List<String> list = new CopyOnWriteArrayList<>();
 
@@ -37,8 +38,8 @@ class HelloThread implements Runnable {
         while (it.hasNext()) {
             System.out.println(it.next());
             //CopyOnWriteArrayList 添加时都会在底层复制一份新的列表
-            list.add("AA");
-            list.add("A");
+            list.add("--");
+            list.add("-");
         }
     }
 }
