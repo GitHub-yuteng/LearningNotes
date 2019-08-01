@@ -1,25 +1,11 @@
-package Algorithm.ZTest.Thread;
+package Thread;
 
 /**
  * @author Yu
  */
 public class DaemonThread {
     public static void main(String[] args) throws InterruptedException {
-        /*Thread t1 = new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                while (true) {
-                    try {
-                        Thread.sleep(1000);
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println("我是子线程(用户线程)");
-                }
-            }
-        });*/
         Thread t1 = new Thread(() -> {
             while (true) {
                 try {
