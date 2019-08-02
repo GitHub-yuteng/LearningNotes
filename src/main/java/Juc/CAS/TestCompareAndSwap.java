@@ -9,17 +9,6 @@ public class TestCompareAndSwap {
         final CompareAndSwap cas = new CompareAndSwap();
 
         for (int i = 0; i < 10; i++) {
-
-            /*new Thread(new Runnable() {
-
-                @Override
-                public void run() {
-                    int expectedValue = cas.get();
-                    boolean b = cas.compareAndSet(expectedValue, (int) (Math.random() * 101));
-                    System.out.println(b);
-                }
-            }).start();*/
-
             new Thread(() ->
                     System.out.println(cas.compareAndSet(cas.get(), (int) (Math.random() * 101)))
             ).start();
