@@ -23,14 +23,14 @@ import java.util.List;
  * 的形式出现在类的内部。
  * <p>
  * //TODO 直接朋友
- * class A{
- * B b;
- * public B m1(){}
- * public void m2(B b){}
- * public void m3(){
- * B b1 = new B();// 局部变量 非直接朋友
- * }
- * }
+ *      class A{
+ *          B b;
+ *          public B m1(){}
+ *          public void m2(B b){}
+ *          public void m3(){
+ *              B b1 = new B();// 局部变量 非直接朋友
+ *          }
+ *       }
  */
 public class Demeter {
     public static void main(String[] args) {
