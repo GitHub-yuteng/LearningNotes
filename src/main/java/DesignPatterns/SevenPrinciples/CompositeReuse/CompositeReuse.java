@@ -1,4 +1,4 @@
-package DesignPatterns.Principle.CompositeReuse;
+package DesignPatterns.SevenPrinciples.CompositeReuse;
 
 /**
  * @author Yu
