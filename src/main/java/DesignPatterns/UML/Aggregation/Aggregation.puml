@@ -1,0 +1,19 @@
+@startuml
+
+class Computer {
+Mouse mouse;
+Keyboard keyboard;
+}
+
+class Mouse {
+
+}
+
+class Keyboard {
+
+}
+
+Computer o-- Mouse
+Computer o-- Keyboard
+
+@enduml
