@@ -1,0 +1,10 @@
+@startuml
+
+Class1 <|-- ClassA:泛化(继承)
+Class2 <-- ClassB:关联
+Class3 *-- ClassC:组合
+Class4 o-- ClassD:聚合
+Class5 <|.. ClassE:实现
+Class6 <.. ClassF:依赖
+
+@enduml
