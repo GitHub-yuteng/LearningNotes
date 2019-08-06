@@ -1,0 +1,20 @@
+@startuml
+
+
+
+class Computer {
+CPU cpu = new CPU();
+SSD ssd = new SSD();
+}
+class CPU {
+
+}
+
+class SSD {
+
+}
+
+Computer *-- CPU
+Computer *-- SSD
+
+@enduml
