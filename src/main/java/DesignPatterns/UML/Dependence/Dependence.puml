@@ -1,0 +1,16 @@
+@startuml
+
+class Dependence {
+    A a;
+    A save(B b);
+}
+
+class A {
+}
+class B {
+}
+
+A <.. Dependence
+B <.. Dependence
+
+@enduml
