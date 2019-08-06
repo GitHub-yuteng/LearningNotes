@@ -1,4 +1,4 @@
-package ZTest.My;
+package ZTest.My.TypesOfValue;
 
 /**
  * @author Yu
@@ -7,10 +7,10 @@ package ZTest.My;
 // 就近原则
 // 成员变量：类变量、实例变量
 // 局部变量：局部变量
-public class Exam5 {
+public class TypesOfVariable {
 
     static int s;  //静态 默认初始化一次 为 0
-                //但是 new 两个对象 代码块初始化两次  和方法调用 三次。静态变量 此类只有一个 s  3+2
+                   //但是 new 两个对象 代码块初始化两次  和方法调用 三次。静态变量 此类只有一个 s  3+2
     int i;
     int j;
     {
@@ -25,8 +25,8 @@ public class Exam5 {
         s++;
     }
     public static void main(String[] args) {
-        Exam5 obj1 = new Exam5();
-        Exam5 obj2 = new Exam5();
+        TypesOfVariable obj1 = new TypesOfVariable();
+        TypesOfVariable obj2 = new TypesOfVariable();
 
         obj1.test(10);
         obj1.test(20);
@@ -35,5 +35,4 @@ public class Exam5 {
         System.out.println(obj1.i+","+obj1.j+","+obj1.s);
         System.out.println(obj2.i+","+obj2.j+","+obj2.s);
     }
-
 }
