@@ -1,4 +1,4 @@
-package ZTest.My;
+package ZTest.My.ClassLoadingOrder;
 
 /**
  * @author Yu
