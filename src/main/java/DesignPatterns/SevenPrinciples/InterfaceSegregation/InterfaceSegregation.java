@@ -1,4 +1,4 @@
-package DesignPatterns.Principle.InterfaceSegregation;
+package DesignPatterns.SevenPrinciples.InterfaceSegregation;
 
 /**
  * @author Yu
