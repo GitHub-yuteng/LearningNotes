@@ -1,4 +1,4 @@
-package DesignPatterns.Principle.SingleResponsility;
+package DesignPatterns.SevenPrinciples.SingleResponsility;
 
 /**
  * @author Yu
