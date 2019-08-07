@@ -1,0 +1,34 @@
+@startuml
+
+abstract class Fruit{
+public abstract void getName();
+}
+
+class Apple {
+public void getName()
+}
+
+class Pear {
+public void getName()
+}
+
+Fruit <|-- Apple
+Fruit <|-- Pear
+
+
+class FruitFactory {
+ public Fruit createFruit(String type)
+}
+
+Apple <.. FruitFactory
+Pear <.. FruitFactory
+
+
+class SimpleFactory{
+FruitFactory Factory = new FruitFactory();
+}
+
+FruitFactory *-- SimpleFactory
+
+
+@enduml
