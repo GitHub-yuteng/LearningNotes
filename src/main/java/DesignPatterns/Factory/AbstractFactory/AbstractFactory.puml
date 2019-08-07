@@ -1,0 +1,57 @@
+@startuml
+
+abstract class CPU{
+public abstract void run();
+}
+
+class A11 extends CPU {
+public void run()
+}
+
+class A12 extends CPU {
+public void run()
+}
+
+abstract class Screen {
+public abstract void isScreen();
+}
+
+class LCD extends Screen {
+public void isScreen()
+}
+
+class OLED extends Screen {
+public void isScreen()
+}
+
+interface PhoneFactory {
+CPU getCpu();
+Screen getScreen();
+}
+
+class Iphone8Factory implements PhoneFactory {
+public CPU getCpu()
+public Screen getScreen()
+}
+
+CPU <.. Iphone8Factory
+Screen <.. Iphone8Factory
+
+class IphoneXsFactory implements PhoneFactory {
+public CPU getCpu()
+public Screen getScreen()
+}
+
+CPU <.. IphoneXsFactory
+Screen <.. IphoneXsFactory
+
+
+class AbstractFactory {
+Iphone8Factory iphone8Factory = new Iphone8Factory();
+IphoneXsFactory iphoneXSFactory = new IphoneXsFactory();
+}
+
+Iphone8Factory *-- AbstractFactory
+IphoneXsFactory *-- AbstractFactory
+
+@enduml
