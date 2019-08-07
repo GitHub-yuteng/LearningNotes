@@ -39,7 +39,7 @@ AppleFactory appleFactory = new AppleFactory();
 PearFactory pearFactory = new PearFactory();
 }
 
-AppleFactory *-- FactoryMethod
-PearFactory *-- FactoryMethod
+AppleFactory --* FactoryMethod
+PearFactory --* FactoryMethod
 
 @enduml
