@@ -28,7 +28,7 @@ class SimpleFactory{
 FruitFactory Factory = new FruitFactory();
 }
 
-FruitFactory *-- SimpleFactory
+FruitFactory --* SimpleFactory
 
 
 @enduml
