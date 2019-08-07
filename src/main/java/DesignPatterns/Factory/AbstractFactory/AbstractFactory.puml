@@ -47,11 +47,9 @@ Screen <.. IphoneXsFactory
 
 
 class AbstractFactory {
-Iphone8Factory iphone8Factory = new Iphone8Factory();
-IphoneXsFactory iphoneXSFactory = new IphoneXsFactory();
+PhoneFactory iphone8Factory = new Iphone8Factory();
+PhoneFactory iphoneXSFactory = new IphoneXsFactory();
 }
 
-Iphone8Factory *-- AbstractFactory
-IphoneXsFactory *-- AbstractFactory
-
+AbstractFactory *-- PhoneFactory
 @enduml
