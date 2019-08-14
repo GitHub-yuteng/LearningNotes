@@ -4,7 +4,6 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import javax.xml.parsers.SAXParser;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.List;
