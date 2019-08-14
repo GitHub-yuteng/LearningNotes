@@ -37,12 +37,14 @@ class ApplicationResourceContext {
                 continue;
             }
 
+            // 拿到 Class 全路径
             String beanClass = bean.attributeValue("class");
+            // 通过反射 new出实例
             Class<?> forName = Class.forName(beanClass);
             Object instance = forName.newInstance();
 
 
-            // 获取所有 bean节点属性
+            // 获取当前子节点所有属性
             List<Element> attrsList = bean.elements();
 
             //对属性进行赋值
