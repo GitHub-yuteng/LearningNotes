@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+    <bean id="user" class="Spring.IOC.User">
+        <property key="name" value="余腾"></property>
+        <property key="age" value="21"></property>
+    </bean>
+
+    <bean id="car" class="Spring.IOC.Car">
+        <property key="name" value="宾利"></property>
+        <property key="emissions" value="2.0"></property>
+    </bean>
+</beans>
