@@ -16,10 +16,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="IntellWorkSpace" />
         <module name="LearningNotes" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="IntellWorkSpace" target="1.5" />
       <module name="LearningNotes" target="1.8" />
     </bytecodeTargetLevel>
   </component>

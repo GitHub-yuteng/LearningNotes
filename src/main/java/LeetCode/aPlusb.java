@@ -1,8 +1,5 @@
 package LeetCode;
 
-import java.util.HashMap;
-import java.util.HashSet;
-
 /**
  * @author Yu
  */
@@ -21,9 +18,6 @@ public class aPlusb {
     public static void main(String[] args) {
         int aplusb = aplusb(3, 5);
         System.out.println(aplusb);
-
-        Object o = new Object();
-        o.hashCode();
     }
 }
 

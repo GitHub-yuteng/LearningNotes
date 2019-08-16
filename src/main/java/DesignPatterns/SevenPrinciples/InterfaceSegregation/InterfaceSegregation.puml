@@ -1,0 +1,51 @@
+@startuml
+
+interface interface1{
+void Operation1();
+}
+interface interface2{
+void Operation2();
+void Operation3();
+}
+interface interface3{
+void Operation4();
+void Operation5();
+}
+
+class A{
+void depend1(interface1 i);
+void depend2(interface2 i);
+void depend3(interface2 i);
+}
+
+class C{
+void depend1(interface1 i);
+void depend4(interface3 i);
+void depend5(interface3 i);
+}
+
+class B{
+void Operation1();
+void Operation2();
+void Operation3();
+}
+
+class D{
+void Operation1();
+void Operation4();
+void Operation5();
+}
+
+interface1 <.. A
+interface2 <.. A
+
+interface1 <.. C
+interface3 <.. C
+
+interface1 <|.. B
+interface2 <|.. B
+
+interface1 <|.. D
+interface3 <|.. D
+
+@enduml

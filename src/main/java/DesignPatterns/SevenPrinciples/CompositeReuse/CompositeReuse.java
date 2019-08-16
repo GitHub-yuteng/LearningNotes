@@ -3,6 +3,12 @@ package DesignPatterns.SevenPrinciples.CompositeReuse;
 /**
  * @author Yu
  * //TODO 合成复用原则  尽量使用合成/聚合的方式，而不是使用继承
+ * 依赖是一个比较大的范围概念
+ * //类中用到了对方
+ * //类的成员属性
+ * //方法的返回类型
+ * //是方法接收的参数类型
+ * //方法中使用到
  */
 public class CompositeReuse {
     public static void main(String[] args) {
@@ -35,14 +41,15 @@ class A {
 
 //如果只是需要用到 A类的方法，尽量不要使用继承。而是使用，依赖，聚合，组合的方式
 class B {
+
     void Operation1(A a) {//TODO 依赖
         a.Operation1();
         a.Operation2();
         a.Operation3();
     }
 
+    //==============================================================
     A a;
-
     public void setA(A a) {
         this.a = a;
     }
@@ -53,6 +60,7 @@ class B {
         a.Operation3();
     }
 
+    //==============================================================
     A a1 = new A();
 
     void Operation3() {//TODO 组合
