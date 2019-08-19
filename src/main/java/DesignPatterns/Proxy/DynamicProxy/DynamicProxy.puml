@@ -1,0 +1,28 @@
+@startuml
+
+
+interface ITeacherDao {
+void teach();
+String write(String name);
+}
+
+class TeacherDao implements ITeacherDao {
+public void teach()
+public String write(String name)
+}
+
+class ProxyFactory {
+private Object target;
+public ProxyFactory(Object target)
+public Object getProxyInstance()
+}
+
+class Client {
+TeacherDao target;
+ITeacherDao proxyInstance;
+}
+
+ProxyFactory <.. Client
+TeacherDao   <.. Client
+
+@enduml
