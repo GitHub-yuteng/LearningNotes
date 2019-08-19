@@ -1,4 +1,4 @@
-package DesignPatterns.Proxy.CGLibProxy;
+package DesignPatterns.StructuralType.Proxy.CGLibProxy;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;

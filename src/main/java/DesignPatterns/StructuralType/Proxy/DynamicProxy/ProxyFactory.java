@@ -1,4 +1,4 @@
-package DesignPatterns.Proxy.DynamicProxy;
+package DesignPatterns.StructuralType.Proxy.DynamicProxy;
 
 import java.lang.reflect.Proxy;
 

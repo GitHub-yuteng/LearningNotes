@@ -1,4 +1,4 @@
-package DesignPatterns.Proxy.StaticProxy;
+package DesignPatterns.StructuralType.Proxy.StaticProxy;
 
 /**
  * @author Yu
