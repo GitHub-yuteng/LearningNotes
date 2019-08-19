@@ -1,0 +1,39 @@
+@startuml
+
+
+interface Subject {
+void registerObserver(Observer o);
+void removeObserver(Observer o);
+void notifyObservers();
+}
+
+class WeatherData implements Subject {
+private ArrayList<Observer> observers;
+}
+
+interface Observer {
+void update(float temperature, float pressure, float humidity);
+}
+
+class CurrentConditions implements Observer {
+public void display()
+}
+
+class OtherConditions implements Observer {
+public void display()
+}
+
+Observer <.. Subject
+WeatherData o.. Observer
+
+class Client {
+WeatherData weatherData;
+CurrentConditions currentConditions;
+OtherConditions otherConditions;
+}
+
+Subject <.. Client
+Observer <.. Client
+
+
+@enduml
