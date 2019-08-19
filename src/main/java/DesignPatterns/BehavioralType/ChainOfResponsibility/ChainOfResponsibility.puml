@@ -1,0 +1,46 @@
+@startuml
+
+class PurchaseRequest {
+private int type = 0;
+private float price = 0.0f;
+private int id = 0;
+}
+
+abstract class Approver {
+Approver approver;
+String name;
+abstract void processRequest(PurchaseRequest purchaseRequest);
+}
+
+class DepartmentApprover extends Approver {
+}
+
+class CollegeApprover extends Approver {
+}
+
+class ViceSchoolMasterApprover extends Approver {
+}
+
+class SchoolMasterApprover extends Approver {
+}
+
+class Client {
+PurchaseRequest purchaseRequest;
+DepartmentApprover departmentApprover;
+CollegeApprover collegeApprover;
+ViceSchoolMasterApprover viceSchoolMasterApprover;
+SchoolMasterApprover schoolMasterApprover;
+}
+
+
+Approver o-- Approver
+
+PurchaseRequest <.. Client
+Approver <.. Client
+
+
+
+
+
+
+@enduml
