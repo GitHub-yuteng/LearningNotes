@@ -1,10 +1,10 @@
-package DesignPatterns.CreationType.Factory.AbstractFactory;
+package DesignPatterns.Factory.AbstractFactory;
 
-import DesignPatterns.CreationType.Factory.AbstractFactory.CPU.CPU;
-import DesignPatterns.CreationType.Factory.AbstractFactory.Factory.Iphone8Factory;
-import DesignPatterns.CreationType.Factory.AbstractFactory.Factory.IphoneXsFactory;
-import DesignPatterns.CreationType.Factory.AbstractFactory.Factory.PhoneFactory;
-import DesignPatterns.CreationType.Factory.AbstractFactory.Screen.Screen;
+import DesignPatterns.Factory.AbstractFactory.CPU.CPU;
+import DesignPatterns.Factory.AbstractFactory.Factory.Iphone8Factory;
+import DesignPatterns.Factory.AbstractFactory.Factory.IphoneXsFactory;
+import DesignPatterns.Factory.AbstractFactory.Factory.PhoneFactory;
+import DesignPatterns.Factory.AbstractFactory.Screen.Screen;
 
 import java.util.Calendar;
 

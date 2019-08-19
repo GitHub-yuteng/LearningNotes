@@ -1,4 +1,4 @@
-package DesignPatterns.CreationType.Factory.AbstractFactory.CPU;
+package DesignPatterns.Factory.AbstractFactory.CPU;
 
 /**
  * @author Yu

@@ -1,7 +1,7 @@
-package DesignPatterns.CreationType.Factory.SimpleFactory;
+package DesignPatterns.Factory.SimpleFactory;
 
-import DesignPatterns.CreationType.Factory.SimpleFactory.Fruit.Apple;
-import DesignPatterns.CreationType.Factory.SimpleFactory.Fruit.Pear;
+import DesignPatterns.Factory.SimpleFactory.Fruit.Apple;
+import DesignPatterns.Factory.SimpleFactory.Fruit.Pear;
 
 public class SimpleFactory {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package DesignPatterns.CreationType.Factory.FactoryMethod.Fruit;
+package DesignPatterns.Factory.SimpleFactory.Fruit;
 
 public abstract class Fruit {
     public abstract void getName();

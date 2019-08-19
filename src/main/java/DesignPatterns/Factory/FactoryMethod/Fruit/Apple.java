@@ -1,4 +1,4 @@
-package DesignPatterns.CreationType.Factory.FactoryMethod.Fruit;
+package DesignPatterns.Factory.FactoryMethod.Fruit;
 
 public class Apple extends Fruit {
     @Override

@@ -1,4 +1,4 @@
-package DesignPatterns.CreationType.Factory.AbstractFactory.Screen;
+package DesignPatterns.Factory.AbstractFactory.Screen;
 
 /**
  * @author Yu
