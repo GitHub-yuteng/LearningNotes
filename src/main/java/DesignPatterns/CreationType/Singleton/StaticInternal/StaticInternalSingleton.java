@@ -1,4 +1,4 @@
-package DesignPatterns.Singleton.StaticInternal;
+package DesignPatterns.CreationType.Singleton.StaticInternal;
 
 public class StaticInternalSingleton {
     public static void main(String[] args) {

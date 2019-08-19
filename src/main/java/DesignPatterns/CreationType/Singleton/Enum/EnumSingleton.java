@@ -1,4 +1,4 @@
-package DesignPatterns.Singleton.Enum;
+package DesignPatterns.CreationType.Singleton.Enum;
 
 public class EnumSingleton {
     public static void main(String[] args) {

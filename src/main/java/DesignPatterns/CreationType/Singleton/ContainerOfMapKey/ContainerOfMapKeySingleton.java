@@ -1,4 +1,4 @@
-package DesignPatterns.Singleton.ContainerOfMapKey;
+package DesignPatterns.CreationType.Singleton.ContainerOfMapKey;
 
 import java.util.HashMap;
 import java.util.Map;

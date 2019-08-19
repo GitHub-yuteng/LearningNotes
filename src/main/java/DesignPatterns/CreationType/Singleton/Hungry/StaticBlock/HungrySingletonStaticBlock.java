@@ -1,12 +1,11 @@
-package DesignPatterns.Singleton.Hungry.StaticInstance;
+package DesignPatterns.CreationType.Singleton.Hungry.StaticBlock;
 
 /**
  * @author Yu
  */
-//TODO  饿汉式 —— 静态常量
-public class HungrySingletonStaticInstance {
+public class HungrySingletonStaticBlock {
     public static void main(String[] args) {
-        System.out.println("======HungrySingletonStaticInstance======");
+        System.out.println("======HungrySingletonStaticBlock======");
         Singleton instance1 = Singleton.getInstance();
         Singleton instance2 = Singleton.getInstance();
         System.out.println("instance1 == instance2：" + (instance1 == instance2));//true
@@ -18,14 +17,15 @@ public class HungrySingletonStaticInstance {
 
 class Singleton {
 
-    // 将自身实例化对象设置为一个属性，并用static、final修饰
-    private final static Singleton instance = new Singleton();
+    private static Singleton instance;
 
-    // 构造方法私有化
+    static {
+        instance = new Singleton();
+    }
+
     private Singleton() {
     }
 
-    // 提供静态方法返回该实例
     public static Singleton getInstance() {
         return instance;
     }

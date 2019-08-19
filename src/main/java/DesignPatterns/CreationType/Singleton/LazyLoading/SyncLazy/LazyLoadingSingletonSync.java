@@ -1,4 +1,4 @@
-package DesignPatterns.Singleton.LazyLoading.SyncLazy;
+package DesignPatterns.CreationType.Singleton.LazyLoading.SyncLazy;
 
 public class LazyLoadingSingletonSync {
     public static void main(String[] args) {
