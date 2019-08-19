@@ -1,4 +1,4 @@
-package DesignPatterns.Observer;
+package DesignPatterns.BehavioralType.Observer;
 
 /**
  * 1、其他第三方接入气象站获取数据、耦合度较高

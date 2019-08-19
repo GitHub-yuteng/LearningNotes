@@ -1,4 +1,4 @@
-package DesignPatterns.Observer.Improve;
+package DesignPatterns.BehavioralType.Observer.Improve;
 
 /**
  * @author Yu

@@ -1,4 +1,4 @@
-package DesignPatterns.Observer;
+package DesignPatterns.BehavioralType.Observer;
 
 public class WeatherData {
     private float temperature;
