@@ -1,4 +1,4 @@
-package DesignPatterns.Strategy;
+package DesignPatterns.BehavioralType.Strategy;
 
 //TODO 定义一个接口( 抽象策略)
 //TODO 定义一个方法用于对两个整数进行运算

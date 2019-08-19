@@ -1,4 +1,4 @@
-package DesignPatterns.Strategy;
+package DesignPatterns.BehavioralType.Strategy;
 
 //TODO 定义具体的环境角色
 //TODO 持有接口的引用，并且有get和set方法可以完成策略更换。在环境角色中调用接口的方法完成动作。

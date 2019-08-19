@@ -1,6 +1,6 @@
-package DesignPatterns.Strategy.StrategyImpl;
+package DesignPatterns.BehavioralType.Strategy.StrategyImpl;
 
-import DesignPatterns.Strategy.Strategy;
+import DesignPatterns.BehavioralType.Strategy.Strategy;
 
 //TODO 乘法运算 实现公共接口
 public class MultiplyStrategy implements Strategy {

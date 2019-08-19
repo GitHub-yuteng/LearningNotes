@@ -1,9 +1,9 @@
-package DesignPatterns.Strategy;
+package DesignPatterns.BehavioralType.Strategy;
 
-import DesignPatterns.Strategy.StrategyImpl.AddStrategy;
-import DesignPatterns.Strategy.StrategyImpl.DivisionStrategy;
-import DesignPatterns.Strategy.StrategyImpl.MultiplyStrategy;
-import DesignPatterns.Strategy.StrategyImpl.SubstractStrategy;
+import DesignPatterns.BehavioralType.Strategy.StrategyImpl.AddStrategy;
+import DesignPatterns.BehavioralType.Strategy.StrategyImpl.DivisionStrategy;
+import DesignPatterns.BehavioralType.Strategy.StrategyImpl.MultiplyStrategy;
+import DesignPatterns.BehavioralType.Strategy.StrategyImpl.SubstractStrategy;
 
 //TODO 只需向环境角色设置相应的算法类，然后就可以得到相应的结果。
 public class StrategyTest {
