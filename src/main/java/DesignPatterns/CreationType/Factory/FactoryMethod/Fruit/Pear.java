@@ -1,4 +1,4 @@
-package DesignPatterns.Factory.SimpleFactory.Fruit;
+package DesignPatterns.CreationType.Factory.FactoryMethod.Fruit;
 
 public class Pear extends Fruit {
 	@Override
