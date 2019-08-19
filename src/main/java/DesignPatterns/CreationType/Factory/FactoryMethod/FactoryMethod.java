@@ -1,9 +1,9 @@
-package DesignPatterns.Factory.FactoryMethod;
+package DesignPatterns.CreationType.Factory.FactoryMethod;
 
-import DesignPatterns.Factory.FactoryMethod.Factory.AppleFactory;
-import DesignPatterns.Factory.FactoryMethod.Factory.PearFactory;
-import DesignPatterns.Factory.FactoryMethod.Fruit.Apple;
-import DesignPatterns.Factory.FactoryMethod.Fruit.Pear;
+import DesignPatterns.CreationType.Factory.FactoryMethod.Factory.AppleFactory;
+import DesignPatterns.CreationType.Factory.FactoryMethod.Factory.PearFactory;
+import DesignPatterns.CreationType.Factory.FactoryMethod.Fruit.Apple;
+import DesignPatterns.CreationType.Factory.FactoryMethod.Fruit.Pear;
 //TODO 具体工厂生成具体产品
 public class FactoryMethod {
     public static void main(String[] args) {
