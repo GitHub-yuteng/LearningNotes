@@ -1,0 +1,24 @@
+@startuml
+
+class TeacherDao {
+public void teach()
+public String write(String name)
+}
+
+class ProxyFactory implements MethodInterceptor {
+private Object target;
+public ProxyFactory(Object target)
+public Object getProxyInstance()
+public Object intercept()
+}
+
+class Client {
+TeacherDao target;
+TeacherDao proxyInstance;
+}
+
+TeacherDao <.. Client
+ProxyFactory <.. Client
+
+
+@enduml
