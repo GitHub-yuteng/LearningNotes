@@ -1,0 +1,23 @@
+@startuml
+
+interface Interface {
+	public void m1();
+	public void m2();
+	public void m3();
+	public void m4();
+}
+
+abstract class AbsAdapter implements Interface {
+	public void m1(){}
+	public void m2(){}
+	public void m3(){}
+	public void m4(){}
+}
+
+class Client {
+//匿名内部类实现需要的方法
+}
+
+AbsAdapter <.. Client
+
+@enduml
