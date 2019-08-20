@@ -1,0 +1,29 @@
+@startuml
+
+interface IVoltage5V {
+public int output5V();
+}
+
+class Voltage220V {
+public int output220V()
+}
+
+class VoltageAdapter extends Voltage220V implements IVoltage5V {
+public int output5V()
+}
+
+class Phone {
+public void charging(IVoltage5V iVoltage5V)
+}
+
+class Client {
+Phone phone = new Phone();
+phone.charging(new VoltageAdapter());
+}
+
+Phone <.. Client
+VoltageAdapter <.. Client
+
+IVoltage5V <.. Phone
+
+@enduml
