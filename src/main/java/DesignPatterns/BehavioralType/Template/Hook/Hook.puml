@@ -21,7 +21,6 @@ class PureSoyaMilk extends SoyaMilk {
 class Client {
 }
 
-
 RedBeanSoyaMilk <.. Client
 PureSoyaMilk <.. Client
 
