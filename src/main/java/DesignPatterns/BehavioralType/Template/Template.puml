@@ -1,0 +1,25 @@
+@startuml
+
+abstract class SoyaMilk {
+    final void make()
+    void select()
+    abstract void addCondiments();
+    void beat()
+}
+
+class RedBeanSoyaMilk extends SoyaMilk {
+    void addCondiments()
+}
+
+class PeanutSoyaMilk extends SoyaMilk {
+	void addCondiments()
+}
+
+class Client {
+}
+
+RedBeanSoyaMilk <.. Client
+PeanutSoyaMilk <.. Client
+
+
+@enduml
