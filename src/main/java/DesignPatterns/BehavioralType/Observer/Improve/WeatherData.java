@@ -8,7 +8,6 @@ public class WeatherData implements Subject {
     private float humidity;
     private ArrayList<Observer> observers;//观察者集合
 
-
     public WeatherData() {
         observers = new ArrayList<Observer>();
     }
@@ -25,6 +24,7 @@ public class WeatherData implements Subject {
         return humidity;
     }
 
+    //主动推送
     public void dataChange() {
         notifyObservers();
     }
