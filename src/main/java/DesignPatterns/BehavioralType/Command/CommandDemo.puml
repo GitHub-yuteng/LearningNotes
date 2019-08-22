@@ -1,0 +1,74 @@
+@startuml
+
+interface Command {
+public void execute();
+public void undo();
+}
+
+class TVReceiver {
+	public void on()
+	public void off()
+}
+
+class TVOnCommand implements Command {
+	TVReceiver tv;
+	public void execute()
+	public void undo()
+}
+
+class TVOffCommand implements Command {
+	TVReceiver tv;
+	public void execute()
+	public void undo()
+}
+
+class LightReceiver {
+	public void on()
+	public void off()
+}
+
+class LightOnCommand implements Command {
+    LightReceiver light;
+    public void execute()
+    public void undo()
+}
+
+class LightOffCommand implements Command {
+    LightReceiver light;
+    public void execute()
+    public void undo()
+}
+
+LightOnCommand o-- LightReceiver
+LightOffCommand o-- LightReceiver
+
+TVOnCommand o-- TVReceiver
+TVOffCommand o-- TVReceiver
+
+
+class RemoteController {
+Command[] onCommands;
+Command[] offCommands;
+Command undoCommand;
+}
+
+RemoteController o-- Command
+
+class Client {
+LightReceiver lightReceiver;
+LightOnCommand lightOnCommand;
+LightOffCommand lightOffCommand;
+TVReceiver tvReceiver;
+TVOffCommand tvOffCommand;
+TVOffCommand tvOffCommand;
+RemoteController remoteController;
+}
+
+RemoteController <.. Client
+
+class NoCommand implements Command {
+    public void execute()
+    public void undo()
+}
+
+@enduml

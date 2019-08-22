@@ -1,0 +1,28 @@
+@startuml
+
+interface Command {
+public void execute();
+public void undo();
+}
+
+class Invoker
+
+class Receiver{
+public void action()
+}
+
+class Client
+
+class ConcreteCommand implements Command{
+public void execute();
+public void undo();
+}
+
+Invoker <.. Client
+Receiver <.. Client
+ConcreteCommand <.. Client
+
+Invoker o-- Command
+ConcreteCommand o-- Receiver
+
+@enduml
