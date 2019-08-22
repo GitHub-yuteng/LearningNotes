@@ -1,0 +1,28 @@
+@startuml
+
+abstract class SoyaMilk {
+final void make()
+void select()
+abstract void addCondiments();
+void soak()
+void beat()
+boolean customerWantCondiments()//钩子方法
+}
+
+class RedBeanSoyaMilk extends SoyaMilk {
+	void addCondiments()
+}
+
+class PureSoyaMilk extends SoyaMilk {
+    void addCondiments() {
+    boolean customerWantCondiments()
+}
+
+class Client {
+}
+
+
+RedBeanSoyaMilk <.. Client
+PureSoyaMilk <.. Client
+
+@enduml
