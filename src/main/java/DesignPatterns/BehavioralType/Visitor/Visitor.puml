@@ -1,0 +1,40 @@
+@startuml
+
+abstract class Action {
+abstract void getManResult(Man man);
+abstract void getWomanResult(Woman woman);
+}
+
+class Success extends Action {
+public void getManResult(Man man)
+public void getWomanResult(Woman woman)
+}
+
+class Fail extends Action {
+public void getManResult(Man man)
+public void getWomanResult(Woman woman)
+}
+
+abstract class Person {
+abstract void accept(Action action);
+}
+
+class Man extends Person {
+public void accept(Action action)
+}
+
+class Woman extends Person {
+public void accept(Action action)
+}
+
+class ObjectStructure {
+private List<Person> persons;
+public void attach(Person p)
+public void detach(Person p)
+public void display(Action action)
+}
+
+class Client {
+}
+
+@enduml
