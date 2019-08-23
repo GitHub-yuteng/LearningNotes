@@ -1,26 +1,22 @@
 @startuml
 
 class Context{
-Statu statu;
-state getStatu()
+State State;
+state getState()
 }
 
-interface Statu{
+abstract class State{
 operation1();
 operation2();
 }
 
-class ConcreteStatuA implements Statu{
-operation1()
-operation2()
+class ConcreteStateA extends State{
 }
 
-class ConcreteStatuB implements Statu{
-operation1()
-operation2()
+class ConcreteStateB extends State{
 }
 
-Context o-- Statu
+Context o-- State
 
 
 @enduml

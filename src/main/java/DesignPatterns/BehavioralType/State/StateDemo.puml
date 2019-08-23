@@ -1,0 +1,50 @@
+@startuml
+
+abstract class State {
+public abstract void deductMoney();
+public abstract boolean lottery();
+public abstract void dispensePrize();
+}
+
+class NoLotteryState extends State {
+LotteryActivity activity;
+}
+
+class CanLotteryState extends State {
+LotteryActivity activity;
+}
+
+class DispenseState extends State {
+LotteryActivity activity;
+}
+
+class DispenseOutState extends State {
+LotteryActivity activity;
+}
+
+class LotteryActivity {
+State state = null;
+int count = 0;
+State canLotteryState
+State noLotteryState
+State dispenseState
+State dispensOutState
+
+void debuctMoney()
+void lottery()
+}
+
+class Client {
+LotteryActivity activity;
+}
+
+State <.. Client
+LotteryActivity <.. Client
+
+
+NoLotteryState <.. LotteryActivity
+CanLotteryState <.. LotteryActivity
+DispenseState <.. LotteryActivity
+DispenseOutState <.. LotteryActivity
+
+@enduml
