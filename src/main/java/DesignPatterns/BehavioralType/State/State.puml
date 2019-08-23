@@ -1,0 +1,26 @@
+@startuml
+
+class Context{
+Statu statu;
+state getStatu()
+}
+
+interface Statu{
+operation1();
+operation2();
+}
+
+class ConcreteStatuA implements Statu{
+operation1()
+operation2()
+}
+
+class ConcreteStatuB implements Statu{
+operation1()
+operation2()
+}
+
+Context o-- Statu
+
+
+@enduml
