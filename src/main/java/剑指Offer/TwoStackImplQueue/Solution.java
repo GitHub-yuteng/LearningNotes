@@ -40,5 +40,6 @@ public class Solution {
         System.out.println(solution.pop());
         System.out.println(solution.pop());
         System.out.println(solution.pop());
+//        System.out.println(solution.pop());
     }
 }
