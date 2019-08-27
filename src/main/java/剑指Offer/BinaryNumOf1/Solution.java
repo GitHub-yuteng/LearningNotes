@@ -8,7 +8,7 @@ package 剑指Offer.BinaryNumOf1;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println(NumberOf1(23));
+        System.out.println(NumberOf1(15));
     }
 
     private static int NumberOf1(int n) {
