@@ -25,8 +25,27 @@ public class CoverRectangle {
         return result;
     }
 
+    public static int Fibonacci2(int n) {
+        int number = 1;
+        int sum = 1;
+        if (n <= 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        while (n-- >= 2) {
+            sum += number;
+            number = sum - number;
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
-        int fibonacci = CoverRectangle.Fibonacci(3);
+        int fibonacci = CoverRectangle.Fibonacci(5);
         System.out.println(fibonacci);
+        System.out.println("=============");
+        int fibonacci2 = CoverRectangle.Fibonacci2(5);
+        System.out.println(fibonacci2);
     }
 }
