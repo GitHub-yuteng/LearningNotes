@@ -6,6 +6,7 @@ package 剑指Offer.RebuildBinaryTree;
  * 假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
  * 例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
  * Definition for binary tree
+ * 检验重建二叉树  -> {7,4,2,5,8,6,3,1}
  */
 class TreeNode {
     int val;
@@ -40,6 +41,11 @@ class TreeNode {
 
 public class Solution {
 
+    /**
+     * @param pre 前序遍历数组
+     * @param in  中序遍历数组
+     * @return 返回该二叉树的根节点
+     */
     public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
         //由于重建二叉树的过程会用到很多边界值，所以题目所给的方法的参数是不够用的
         //所以，在下面重载了这个方法，每次传入前序和中序序列以及起始位置
@@ -47,19 +53,28 @@ public class Solution {
         return root;
     }
 
+    /**
+     * @param pre 前序遍历数组
+     * @param startPre 前序数组 开始边界值
+     * @param endPre 前序数组 结束边界值
+     * @param in 中序遍历数组
+     * @param startIn 中序数组 开始边界值
+     * @param endIn 中序数组 结束边界值
+     * @return 返回该二叉树的根节点
+     */
     private TreeNode reConstructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
         //这里是判断结束的标志，由于是递归算法，我们不可能一直执行下去，所以需要结束标志
         //下面这两种情况发生一个就会结束
         if (startPre > endPre || startIn > endIn) {
             return null;
         }
-        //首先找到根节点
+        //TODO 首先找到根节点，前序遍历序列第一位是根节点
         TreeNode root = new TreeNode(pre[startPre]);
-        //对中序遍历进行查找根节点
+        //TODO 对中序遍历进行查找根节点（因为不含重复节点）
         for (int i = startIn; i <= endIn; i++) {
-            //找到之后，分别对左子树和右子树进行递归算法，重复此步骤
+            //TODO 找到之后，分别对左子树和右子树进行递归算法，重复此步骤
             if (in[i] == pre[startPre]) {
-                //重建二叉树的关键就是找到其中的边界值，边界值在图中已经做了描述
+                //TODO 重建二叉树的关键就是找到其中的边界值，边界值在图中已经做了描述
                 root.left = reConstructBinaryTree(pre, startPre + 1, startPre + i - startIn, in, startIn, i - 1);
                 root.right = reConstructBinaryTree(pre, startPre + i - startIn + 1, endPre, in, i + 1, endIn);
                 break;
