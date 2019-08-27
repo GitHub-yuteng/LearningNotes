@@ -10,7 +10,11 @@ public class Solution {
         StringBuffer str = new StringBuffer("We Are Happy");
         System.out.println(str.toString());
         String replaceSpace = replaceSpace(str);
-        System.out.println(replaceSpace);
+        System.out.println("char[]优化-> " + replaceSpace);
+
+        System.out.println("===========");
+        String replaceSpace2 = replaceSpace2(str);
+        System.out.println("StringBuffer 追加-> " + replaceSpace2);
     }
 
     public static String replaceSpace(StringBuffer str) {
@@ -22,7 +26,6 @@ public class Solution {
                 count++;
             }
         }
-
 
         int len = 2 * count + length;//TODO 空格原本占一个位置，则空格数 乘 2 得总长
         char[] chars = new char[len];//TODO 提前设置好数组大小，提高扩容效率
@@ -39,5 +42,20 @@ public class Solution {
             length--;
         }
         return String.valueOf(chars);
+    }
+
+    public static String replaceSpace2(StringBuffer str) {
+        if (str == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            if (String.valueOf(str.charAt(i)).equals(" ")) {
+                sb.append("%20");
+            } else {
+                sb.append(str.charAt(i));
+            }
+        }
+        return String.valueOf(sb);
     }
 }
