@@ -1,11 +1,10 @@
-package 剑指Offer.Interview_3;
+package 剑指Offer.FindDuplicateNumber;
 
-/*
-在一个长度为 n 的数组里的所有数字都在 0 到 n-1 的范围内。
-数组中某些数字是重复的，但不知道有几个数字是重复的，也不知道每个数字重复几次。
-请找出数组中任意一个重复的数字。
-*/
-
+/**
+ * 在一个长度为 n 的数组里的所有数字都在 0 到 n-1 的范围内。
+ * 数组中某些数字是重复的，但不知道有几个数字是重复的，也不知道每个数字重复几次。
+ * 请找出数组中任意一个重复的数字。
+ */
 public class Solution {
 
     public static int duplication;
@@ -35,6 +34,7 @@ public class Solution {
         }
         return false;
     }
+
     private static void swap(int[] numbers, int i, int j) {
         int t = numbers[i];
         numbers[i] = numbers[j];
@@ -44,7 +44,7 @@ public class Solution {
     //长度为8  所以 n-1  n为7  则数字只有0-7范围内 必定有重复数字
     public static void main(String[] args) {
         int[] arr = {1, 3, 0, 0, 4, 4, 2, 5};
-        boolean result = duplicate(arr,arr.length,duplication);
+        boolean result = duplicate(arr, arr.length, duplication);
         System.out.println(result);
     }
 }
