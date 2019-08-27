@@ -1,13 +1,13 @@
-package 剑指Offer.Interview_10;
+package 剑指Offer.Fibonacci;
 
 /*
-* 我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
-* */
+ * 我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
+ * */
 public class Solution2 {
 
     public static int Fibonacci(int target) {
 
-        if (target <= 2){
+        if (target <= 2) {
             return target;
         }
 
@@ -21,8 +21,6 @@ public class Solution2 {
         }
         return result;
     }
-
-
 
     public static void main(String[] args) {
         int fibonacci = Solution2.Fibonacci(4);
