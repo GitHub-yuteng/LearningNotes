@@ -178,7 +178,7 @@ class Node {
     //中序遍历
     public void infixOrder() {
 
-        //递归左子树前序遍历
+        //递归左子树中序遍历
         if (this.left != null) {
             this.left.infixOrder();
         }
@@ -186,25 +186,24 @@ class Node {
         //输出当前结点
         System.out.println(this);
 
-        //递归右子树前序遍历
+        //递归右子树中序遍历
         if (this.right != null) {
             this.right.infixOrder();
         }
     }
 
-    //中序遍历
+    //后序遍历
     public void postOrder() {
 
-        //递归左子树前序遍历
+        //递归左子树后序遍历
         if (this.left != null) {
             this.left.postOrder();
         }
 
-        //递归右子树前序遍历
+        //递归右子树后序遍历
         if (this.right != null) {
             this.right.postOrder();
         }
-
         //输出当前结点
         System.out.println(this);
     }
