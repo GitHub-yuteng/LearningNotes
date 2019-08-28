@@ -26,10 +26,10 @@ public class Solution {
             return head;
         }
         while (head != null) {
-            ListNode temp = head.next;
-            head.next = newHead;
-            newHead = head;
-            head = temp;
+            ListNode temp = head.next;//TODO 保留头结点的下一个节点
+            head.next = newHead;//TODO 头插法
+            newHead = head;//TODO newHead 前移一位
+            head = temp;//TODO 头结点后移一位
         }
         return newHead;
     }
