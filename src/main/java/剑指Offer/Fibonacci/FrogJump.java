@@ -24,16 +24,16 @@ package 剑指Offer.Fibonacci;
  */
 public class FrogJump {
 
-    public static int Fibonacci(int n) {
+    public static int Fibonacci(int target) {
 
-        if (n <= 2) {
-            return n;
+        if (target <= 2) {
+            return target;
         }
 
         int pre2 = 1, pre1 = 2;
         int fib = 0;
 
-        for (int i = 3; i <= n; i++) {
+        for (int i = 3; i <= target; i++) {
             fib = pre2 + pre1;
             pre2 = pre1;
             pre1 = fib;
