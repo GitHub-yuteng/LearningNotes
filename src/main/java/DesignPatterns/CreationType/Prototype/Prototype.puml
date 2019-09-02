@@ -1,0 +1,18 @@
+@startuml
+
+
+class Prototype{
+protected Object clone()
+}
+
+class ConcretePrototype extends Prototype{
+protected Object clone()
+}
+
+class Client {
+}
+
+Prototype <-- Client
+
+
+@enduml
