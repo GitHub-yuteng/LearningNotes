@@ -45,6 +45,14 @@
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
         </property>
 
+        <!--注入jpa的配置信息
+            加载jpa的基本配置信息和jpa的实现方式(Hibernate)的配置信息
+        -->
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
     </bean>
 
     <!--2.创建数据库连接池 -->

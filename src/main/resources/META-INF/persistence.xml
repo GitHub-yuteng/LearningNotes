@@ -31,7 +31,8 @@
                     none; 不会创建表（数据库没有表则报错）
             -->
             <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!--以 JPA 文件为准-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
         </properties>
     </persistence-unit>
 </persistence>
