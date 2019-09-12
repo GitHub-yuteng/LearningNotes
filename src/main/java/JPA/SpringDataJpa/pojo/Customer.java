@@ -64,7 +64,7 @@ public class Customer {
      *  CascadeType.PERSIST ：保存
      *
      */
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<LinkMan> linkMans = new HashSet<>();
 
     public Customer() {
@@ -148,13 +148,12 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "custId=" + custId +
-                ", custName='" + custName + '\'' +
-                ", custSource='" + custSource + '\'' +
+                ", custAddress='" + custAddress + '\'' +
                 ", custIndustry='" + custIndustry + '\'' +
                 ", custLevel='" + custLevel + '\'' +
-                ", custAddress='" + custAddress + '\'' +
+                ", custName='" + custName + '\'' +
                 ", custPhone='" + custPhone + '\'' +
-                ", linkMans=" + linkMans +
+                ", custSource='" + custSource + '\'' +
                 '}';
     }
 }
