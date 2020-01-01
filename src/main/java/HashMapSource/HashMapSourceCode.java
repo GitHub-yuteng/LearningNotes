@@ -1,5 +1,6 @@
 package HashMapSource;
 
+
 import java.util.HashMap;
 
 /**
@@ -16,6 +17,7 @@ public class HashMapSourceCode {
 
 
         System.out.println("HashMapPutKey->hash方法：" + HashMapPutKey("余腾"));//TODO 662863
+
         //TODO   hashcode值  h ->   1010 0001 1101 0100 0101  -> 662853
         //TODO        h >>> 16 ->   0000 0000 0000 0000 1010 0001 1101 0100 0101
         //TODO  h ^ (h >>> 16) ->   1010 0001 1101 0100 1111  -> 662863  // 因为 异或 的值只有最后四位变动 值变动较小

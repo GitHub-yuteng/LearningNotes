@@ -2,6 +2,7 @@ package JVM.OOM.OutOfMemoryError;
 
 /**
  * @author Yu
+ * 不能够创建更多的本地线程  98497
  */
 public class UnableToCreateNewNativeThread {
     public static void main(String[] args) {

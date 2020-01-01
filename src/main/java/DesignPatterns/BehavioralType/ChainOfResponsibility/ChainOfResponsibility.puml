@@ -38,6 +38,8 @@ Approver o-- Approver
 PurchaseRequest <.. Client
 Approver <.. Client
 
+PurchaseRequest <.. Approver
+
 
 
 

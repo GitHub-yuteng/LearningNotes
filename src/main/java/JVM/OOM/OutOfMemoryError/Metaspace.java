@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 /**
  * @author Yu
  * -XX:MetaspaceSize=50m -XX:MaxMetaspaceSize=50m
+ * 元空间
  */
 public class Metaspace {
 

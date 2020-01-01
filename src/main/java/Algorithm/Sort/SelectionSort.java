@@ -24,7 +24,7 @@ public class SelectionSort {
         System.out.println("交换之前：" + Arrays.toString(arr));
 
 
-//        Selection(arr);
+        Selection(arr);
 //        Selection2(arr);
 
         System.out.println("-----testSelection------");

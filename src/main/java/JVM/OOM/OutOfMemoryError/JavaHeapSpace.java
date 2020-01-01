@@ -1,7 +1,7 @@
 package JVM.OOM.OutOfMemoryError;
 
 /**
- * @author Yu
+ * 堆内存溢出
  */
 public class JavaHeapSpace {
 

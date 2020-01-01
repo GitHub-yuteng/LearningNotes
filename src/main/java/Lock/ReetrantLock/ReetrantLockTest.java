@@ -1,11 +1,14 @@
 package Lock.ReetrantLock;
 
+import sun.misc.Unsafe;
+
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 class Reetrant implements Runnable {
 
-    Lock lock = new ReentrantLock();
+    private Lock lock = new ReentrantLock();
 
     @Override
     public void run() {
@@ -13,6 +16,7 @@ class Reetrant implements Runnable {
     }
 
     public void inOne() {
+
         lock.lock();
         try {
             System.out.println(Thread.currentThread().getName() + " Come in One!");
