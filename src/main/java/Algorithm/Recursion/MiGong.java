@@ -12,7 +12,7 @@ public class MiGong {
 
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
-                System.out.print(map[i][j]);
+                System.out.print(map[i][j] + " ");
             }
             System.out.println();
         }
@@ -35,6 +35,9 @@ public class MiGong {
         map[3][2] = 1;
         map[2][3] = 1;
         map[2][2] = 1;
+        map[2][5] = 1;
+        map[4][4] = 1;
+        map[4][5] = 1;
 
         System.out.println();
         for (int i = 0; i < map.length; i++) {
@@ -45,7 +48,7 @@ public class MiGong {
         }
 
         //使用递归回溯
-        setWay(map,1,1);
+        setWay(map, 1, 1);
 
         System.out.println("---路径---");
         for (int i = 0; i < map.length; i++) {
@@ -86,9 +89,9 @@ public class MiGong {
                     return true;
                 } else if (setWay(map, i - 1, j)) {//  ↑
                     return true;
-                } else if (setWay(map, i, j - 1)) {//  ↑
+                } else if (setWay(map, i, j - 1)) {//  ←
                     return true;
-                }else {
+                } else {
                     map[i][j] = 3;
                     return false;
                 }
