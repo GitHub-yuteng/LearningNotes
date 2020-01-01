@@ -45,7 +45,7 @@ public class HorseChessBorad {
         chessBoard[row][colum] = step;
         visited[row][colum] = true;
         ArrayList<Point> pointsList = jumpAllPoint(new Point(colum, row));
-//        sortPoint(pointsList);
+        sortPoint(pointsList);//TODO 贪心算法优化
         while (!pointsList.isEmpty()) {
             Point point = pointsList.remove(0);
             //TODO 该点没有访问过
