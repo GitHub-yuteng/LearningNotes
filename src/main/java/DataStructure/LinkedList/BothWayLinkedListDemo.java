@@ -30,9 +30,6 @@ public class BothWayLinkedListDemo {
         System.out.println("--------------删除后遍历！--------------");
         bothWayLinkedList.deleteNode(4);
         bothWayLinkedList.traverse();
-
-
-
     }
 }
 

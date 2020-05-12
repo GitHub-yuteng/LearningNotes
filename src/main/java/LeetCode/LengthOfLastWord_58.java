@@ -1,7 +1,5 @@
 package LeetCode;
 
-import javassist.bytecode.analysis.FramePrinter;
-
 /**
  * @author Yu
  */
@@ -27,7 +25,6 @@ public class LengthOfLastWord_58 {
 
     public static void main(String[] args) {
         int length = lengthOfLastWord(" asd");
-
         System.out.println(length);
     }
 }

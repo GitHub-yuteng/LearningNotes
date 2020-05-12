@@ -89,5 +89,6 @@ public class DesEncrypt {
         //TODO 根据给定的字节数组，构造一个密钥
         SecretKeySpec key = new SecretKeySpec(buffer, "DES");
         return key;
+
     }
 }

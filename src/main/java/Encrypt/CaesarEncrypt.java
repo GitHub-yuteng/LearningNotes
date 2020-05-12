@@ -6,7 +6,7 @@ package Encrypt;
 public class CaesarEncrypt {
     public static void main(String[] args) {
         //TODO 明文：原始信息
-        String clearText = "abc";
+        String clearText = "information security";
         //TODO 加密规则：将字母按照字母表的顺序向右移动 key 位
         int key = 3;
         //TODO 密文

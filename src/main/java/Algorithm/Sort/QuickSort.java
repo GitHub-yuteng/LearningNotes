@@ -6,37 +6,41 @@ import java.util.Arrays;
 
 /**
  * @author Yu
- *
+ * <p>
  * 快速排序    不稳定
- *
+ * <p>
  * 时间复杂度
  * 平均 O(nlogn)
  * 最好情况 O(nlog n)
  * 最坏情况 O(n^2)
- *
+ * <p>
  * 空间复杂度 O(log n)
+ * <p>
+ * 冒泡的改进  每次确定一个位置
+ * <p>
+ * 当数据是顺序的，pivot取最后一个，就变成了 O(n^2)
  */
 public class QuickSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {64, -7, 2, 64, 65, 60, 64, 70};
-        System.out.println(Arrays.toString(arr));
-//        int[] arr = {1};
-
-        QuickSort(arr, 0, arr.length - 1);
-        System.out.println(Arrays.toString(arr));
+        int[] arr = {36, -7, 2, 2, 67, 64, 3, 59, 76, 234, 64};
+//        System.out.println(Arrays.toString(arr));
+////        int[] arr = {1};`
+//
+////        quickSort(arr, 0, arr.length - 1);
+//        System.out.println(Arrays.toString(arr));
 
         System.out.println("-----testSelection------");
-        int[] testArray = new int[80000000];
-        for (int i = 0; i < 80000000; i++) {
-            testArray[i] = (int) (Math.random() * 800000000);//生成一个 [0,800000) 内的数字
+        int[] testArray = new int[8000000];
+        for (int i = 0; i < 8000000; i++) {
+            testArray[i] = (int) (Math.random() * 80000000);//生成一个 [0,800000) 内的数字
         }
 
         LocalTime start = LocalTime.now();
         System.out.println("开始时间为：" + start);
 
-//        QuickSort(testArray, 0, testArray.length - 1);
+        quickSort(testArray, 0, testArray.length - 1);
 
         LocalTime end = LocalTime.now();
         System.out.println("结束时间为：" + end);
@@ -45,60 +49,37 @@ public class QuickSort {
         System.out.println("时间为：" + time.toMillis() + " 毫秒！");
     }
 
-    public static void QuickSort(int[] arr, int left, int right) {
+    public static void quickSort(int[] arr, int left, int right) {
 
-        int l = left;//左索引
-        int r = right;//右索引
-        int pivot = arr[(left + right) / 2]; //中间值
+        if (left < right) {
+            swap(arr, left + (int) (Math.random() * (right - left + 1)), right);
+            // p 数组中： p[0] 表示等于区域的左边界，p[1] 表示等于区域的右边界，
+            // 左边区域：L ~ p[0] - 1;右边区域： p[1] + 1 ~ R;
+            int[] p = partition(arr, left, right);
+            quickSort(arr, left, p[0] - 1);
+            quickSort(arr, p[1] + 1, right);
+        }
+    }
 
-        int temp = 0;//临时变量
-        //比 pivot 值 小的放左边， 大的放右边
-        while (l < r) {
-            //在 pivot 的左边一直找，找到大于等于 pivot，才退出
-            while (arr[l] < pivot) {
-                l++;
-            }
-            //在 pivot 的右边一直找，找到小于等于 pivot，才退出
-            while (arr[r] > pivot) {
-                r--;
-            }
-            //如果 l== r 说明 pivot，应按照
-            // 左边全部小于 pivot  右面全部大于 pivot 但是 无序
-            if (l >= r) {
-                break;
-            }
-
-            temp = arr[l];
-            arr[l] = arr[r];
-            arr[r] = temp;
-            System.out.println(Arrays.toString(arr));
-
-            //如果交换后，发现 arr[l] == pivot r--
-            //如果有相同数据  不需要在进行比较
-            if (arr[l] == pivot) {
-                r--;
-            }
-//
-//            //如果交换后，发现 arr[r] == pivot l++
-//            //如果有相同数据
-            if (arr[r] == pivot) {
-                l++;
+    public static int[] partition(int[] sourceArray, int left, int right) {
+        int low = left - 1;
+        int hight = right;
+        while (left < hight) {
+            if (sourceArray[left] < sourceArray[right]) {
+                swap(sourceArray, ++low, left++);
+            } else if (sourceArray[left] > sourceArray[right]) {
+                swap(sourceArray, --hight, left);
+            } else {
+                left++;
             }
         }
+        swap(sourceArray, hight, right);
+        return new int[]{low + 1, hight};
+    }
 
-        //如果 l==r ，必须 l++,r-- 否则出现栈溢出
-        if (l == r) {
-            l++;
-            r--;
-        }
-
-        //左递归
-        if (left < r) {
-            QuickSort(arr, left, r);
-        }
-        //左递归
-        if (right > l) {
-            QuickSort(arr, l, right);
-        }
+    public static void swap(int[] sourceArray, int i, int j) {
+        int tmp = sourceArray[i];
+        sourceArray[i] = sourceArray[j];
+        sourceArray[j] = tmp;
     }
 }
