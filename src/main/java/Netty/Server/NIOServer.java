@@ -1,4 +1,4 @@
-package Netty.server;
+package Netty.Server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -26,7 +26,7 @@ public class NIOServer {
         serverSocketChannel.socket().bind(new InetSocketAddress(6666));
 
         // 4. 获取选择器
-        Selector selector = Selector.open();
+        Selector selector = Selector.open();//WindowsSelectorImpl
 
         // 5. 将通道注册到选择器上, 并且指定“监听接收事件”
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
