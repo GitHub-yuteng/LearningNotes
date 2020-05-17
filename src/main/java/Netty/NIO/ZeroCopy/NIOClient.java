@@ -1,4 +1,4 @@
-package Netty.ZeroCopy;
+package Netty.NIO.ZeroCopy;
 
 import java.io.FileInputStream;
 import java.io.IOException;

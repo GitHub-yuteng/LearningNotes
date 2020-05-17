@@ -1,4 +1,4 @@
-package Netty.ZeroCopy;
+package Netty.NIO.ZeroCopy;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

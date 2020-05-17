@@ -1,4 +1,4 @@
-package Netty.NIO;
+package Netty.NIO.NIOChannel;
 
 import java.io.File;
 import java.io.FileInputStream;

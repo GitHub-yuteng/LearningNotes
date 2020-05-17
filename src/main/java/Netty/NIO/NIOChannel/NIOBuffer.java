@@ -1,4 +1,4 @@
-package Netty.NIO;
+package Netty.NIO.NIOChannel;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
