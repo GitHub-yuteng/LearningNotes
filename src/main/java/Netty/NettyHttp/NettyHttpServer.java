@@ -9,6 +9,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * @author Yu
+ * 短链接用 http，长链接用 WebSocket
  */
 public class NettyHttpServer {
     public static void main(String[] args) {
