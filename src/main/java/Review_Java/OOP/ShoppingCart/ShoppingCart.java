@@ -62,6 +62,6 @@ public class ShoppingCart {
     public void clear() {
         items.clear();
         itemsCount = 0;
-        totalPrice.setScale(0);
+        totalPrice = BigDecimal.ZERO;
     }
 }

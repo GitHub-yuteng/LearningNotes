@@ -9,13 +9,10 @@ import org.junit.Test;
 public class CreateAnnotation {
 
     public static void main(String[] args) {
-
         test();
     }
 
     @Test
     private static void test() {
     }
-
-
 }

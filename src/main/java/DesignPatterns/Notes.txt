@@ -1,6 +1,6 @@
 
 //TODO 设计模式七大原则:
-// 1、单一职责、
+// 1、单一职责原则 SPR(Single Responsibility Principle) : A class or module should have a single reponsibility。如果我们把它翻译成中文，那就是：一个类或者模块只负责完成一个职责（或者功能）。
 // 2、接口隔离、
 // 3、依赖倒转、
 // 4、里氏替换、
