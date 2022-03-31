@@ -7,28 +7,25 @@ import java.util.Arrays;
 /**
  * @author Yu
  * 冒泡排序   ->n小时较好  稳定
- *
+ * <p>
  * 时间复杂度
  * 平均 O(n^2)
  * 最好情况 O(n)
  * 最坏情况 O(n^2)
- *
+ * <p>
  * 空间复杂度 O(1)
  */
 public class BubbleSort {
     public static void main(String[] args) {
 
         int[] arr = {9, 6, 1, 5, 4, 7, 8, 3, 2};
-        System.out.println("原数组："+Arrays.toString(arr));
+        System.out.println("原数组：" + Arrays.toString(arr));
         bubbleSort(arr, arr.length);
         System.out.println("外循环控制循环次数！");
-        System.out.println("排序后："+Arrays.toString(arr));
+        System.out.println("排序后：" + Arrays.toString(arr));
         System.out.println("----------------------------------");
-
-
-        int[] array1 = {95, -2, 1, -5, 4, 97, -8, 3, 2};
-        int[] array = {1,2,3,4,5,6,7};
-        System.out.println("原数组："+Arrays.toString(array));
+        int[] array = {1, 2, 3, 4, 5, 6, 7};
+        System.out.println("原数组：" + Arrays.toString(array));
         //算法优化
         inBubbleSort(array);
         System.out.println("-----inBubbleSort------");
@@ -38,29 +35,22 @@ public class BubbleSort {
         //创建一个 80000个 随机的数组;
         System.out.println("-----testInBubbleSort------");
         int[] testArray = new int[80000];
-        for (int i = 0; i <80000 ; i++) {
+        for (int i = 0; i < 80000; i++) {
             testArray[i] = (int) (Math.random() * 800000);//生成一个 [0,800000) 内的数字
         }
-//        System.out.println(Arrays.toString(testArray));
-
         LocalTime start = LocalTime.now();
-        System.out.println("开始时间为："+start);
-
+        System.out.println("开始时间为：" + start);
         inBubbleSort(testArray);
-
         LocalTime end = LocalTime.now();
-        System.out.println("结束时间为："+end);
-
+        System.out.println("结束时间为：" + end);
         Duration time = Duration.between(start, end);
-        System.out.println("时间为："+time.toMillis()+" 毫秒！");
+        System.out.println("时间为：" + time.toMillis() + " 毫秒！");
     }
 
-    //这种是内循环控制循环次数 每次排序长度减 1
-    public static void inBubbleSort(int[] array){
+    public static void inBubbleSort(int[] array) {
         int count = 0;
         int temp = 0;//临时变量
         boolean flag = false;//标识变量，表示是否进行过交换
-
         //这种是内循环控制
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - 1 - i; j++) {
@@ -72,16 +62,13 @@ public class BubbleSort {
                     array[j + 1] = temp;
                 }
             }
-//            System.out.println("第" + (i + 1) + "趟排序后的数组！");
-//            System.out.println(Arrays.toString(array));
-
-            if(!flag){ //在一趟排序中，没有发生交换
+            if (!flag) { //在一趟排序中，没有发生交换
                 break;
-            }else {
+            } else {
                 flag = false;//重置flag！, 进行下次判断
             }
         }
-        System.out.println("交换次数："+count);
+        System.out.println("交换次数：" + count);
     }
 
 
